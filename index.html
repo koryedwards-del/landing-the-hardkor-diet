@@ -455,6 +455,15 @@
       .athlete-hero-rule { width: 105px; margin: 20px 0; }
       .athlete-hero p { font-size: 25px; }
     }
+
+    .guide-card { max-width: 850px; margin: 32px auto 0; padding: 40px; background: #161817; border: 1px solid var(--landing-divider); border-radius: 16px; }
+    .guide-card-label { margin: 0 0 18px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .18em; text-transform: uppercase; color: #e8bd43; }
+    .guide-card-history { margin: 0 0 32px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.15; color: #fff; }
+    .guide-card-person { display: flex; justify-content: center; align-items: center; gap: 32px; }
+    .guide-card-person img { width: 180px; height: 180px; object-fit: cover; object-position: center 30%; border-radius: 50%; border: 2px solid #e8bd43; }
+    .guide-card h3 { margin: 0 0 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 36px; color: #fff; }
+    .guide-card-credential { margin: 0; font-size: 20px; line-height: 1.4; color: #d4d4d4; }
+    @media (max-width: 600px) { .guide-card { padding: 28px 20px; } .guide-card-person { flex-direction: column; gap: 20px; text-align: center; } .guide-card-person img { width: 140px; height: 140px; } .guide-card h3 { font-size: 32px; } .guide-card-credential { font-size: 18px; } }
   </style>
 </head>
 <body>
@@ -578,6 +587,17 @@
       <div class="section-head section-head--statement">
         <h2 class="section-title">Built for <span>Everyone</span> Who's Serious</h2>
       </div>
+      <aside class="guide-card" aria-labelledby="guide-name">
+        <p class="guide-card-label">Meet your guide</p>
+        <p class="guide-card-history">Helping athletes since 1982.</p>
+        <div class="guide-card-person">
+          <img src="/img/kory-edwards-headshot.jpeg" alt="Kory Edwards" width="180" height="180" loading="lazy" />
+          <div>
+            <h3 id="guide-name">Kory Edwards</h3>
+            <p class="guide-card-credential">Certified Sports Nutrition Specialist</p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
