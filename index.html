@@ -428,8 +428,8 @@
 
     .athlete-hero { isolation: isolate; min-height: min(600px, 60vw); padding: 90px clamp(22px, 4vw, 86px) 90px; align-items: flex-start; text-align: left; background: #061b11; color: #fff; }
     .athlete-hero::before { display: none; }
-    .athlete-hero-photo { position: absolute; z-index: -2; inset: 0 0 0 50%; background: url('/img/football-hero.png') right bottom / auto max(113%, 72vw) no-repeat; }
-    .athlete-hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #061b11, rgba(6,27,17,.6) 17%, transparent 55%); }
+    .athlete-hero-photo { position: absolute; z-index: -2; inset: 0; background: url('/img/football-athlete-clean.png') center 25% / cover no-repeat; }
+    .athlete-hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #061b11 0%, rgba(6,27,17,.8) 35%, transparent 75%); }
     .athlete-hero-copy { max-width: 1200px; }
     .athlete-hero .athlete-hero-lead { font-family: 'Barlow Condensed', Impact, sans-serif; font-style: italic; font-weight: 700; font-size: clamp(28px, 3vw, 46px); margin: 0; }
     .athlete-hero h1 { margin: 0; font-family: 'Barlow Condensed', Impact, sans-serif; font-weight: 800; font-style: italic; font-size: clamp(48px, 6.2vw, 103px); line-height: 1.02; letter-spacing: -.015em; text-transform: uppercase; color: #fff; }
@@ -437,13 +437,13 @@
     .athlete-hero p { margin: 0; max-width: 900px; font-family: Barlow, Arial, sans-serif; font-weight: 400; font-style: normal; font-size: clamp(23px, 2.6vw, 39px); line-height: 1.4; color: #fff; }
     @media (max-width: 800px) {
       .athlete-hero { min-height: 420px; padding-top: 60px; padding-bottom: 60px; }
-      .athlete-hero-photo { left: 28%; opacity: .6; }
+      .athlete-hero-photo { background-position: 70% center; opacity: .65; }
       .athlete-hero-photo::after { background: linear-gradient(90deg, #061b11, rgba(6,27,17,.55) 55%, transparent); }
     }
     @media (max-width: 480px) {
       .athlete-hero { min-height: 390px; padding-top: 45px; padding-bottom: 45px; }
       .athlete-question-break { display: none; }
-      .athlete-hero-photo { left: 12%; opacity: .42; }
+      .athlete-hero-photo { background-position: 72% center; opacity: .5; }
       .athlete-hero h1 { font-size: clamp(42px, 12vw, 57px); max-width: 350px; }
       .athlete-hero-rule { width: 105px; margin: 20px 0; }
       .athlete-hero p { font-size: 25px; }
