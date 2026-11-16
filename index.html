@@ -163,7 +163,10 @@
       justify-content: center;
     }
     .filter-inner { max-width: 1100px; margin: 0 auto; }
-    .divider { height: 2px; background: rgba(225, 205, 65, .55); }
+    :root { --landing-divider: rgba(225, 205, 65, .55); }
+    .divider { height: 2px; background: var(--landing-divider); }
+    nav, .mobile-nav { border-bottom: 2px solid var(--landing-divider); }
+    footer { border-top: 2px solid var(--landing-divider); }
     .divider--filter { margin: 0; }
     .filter p {
       margin: 0;
