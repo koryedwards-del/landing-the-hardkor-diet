@@ -426,21 +426,23 @@
     }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
-    .athlete-hero { isolation: isolate; min-height: 510px; padding: 68px clamp(22px, 5vw, 86px) 78px; align-items: flex-start; text-align: left; background: #061b11; color: #fff; }
+    .athlete-hero { isolation: isolate; min-height: min(900px, 90vw); padding: 180px clamp(22px, 4vw, 86px) 150px; align-items: flex-start; text-align: left; background: #061b11; color: #fff; }
     .athlete-hero::before { display: none; }
     .athlete-hero-photo { position: absolute; z-index: -2; inset: 0 0 0 50%; background: url('/img/football-hero.png') right bottom / auto 113% no-repeat; }
     .athlete-hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #061b11, rgba(6,27,17,.6) 17%, transparent 55%); }
     .athlete-hero-copy { max-width: 1200px; }
+    .athlete-hero .athlete-hero-lead { font-weight: 600; font-size: clamp(28px, 3vw, 46px); margin: 0 0 28px; }
     .athlete-hero h1 { margin: 0; font-family: 'Barlow Condensed', Impact, sans-serif; font-weight: 800; font-style: italic; font-size: clamp(48px, 6.2vw, 103px); line-height: 1.02; letter-spacing: -.015em; text-transform: uppercase; color: #fff; }
-    .athlete-hero-rule { width: 145px; height: 5px; background: var(--yellow); margin: 34px 0; }
+    .athlete-hero-rule { width: 180px; height: 6px; background: #e8bd43; margin: 48px 0; }
     .athlete-hero p { margin: 0; max-width: 900px; font-family: Barlow, Arial, sans-serif; font-size: clamp(23px, 2.6vw, 39px); line-height: 1.4; color: #fff; }
     @media (max-width: 800px) {
-      .athlete-hero { min-height: 445px; padding-top: 48px; padding-bottom: 58px; }
+      .athlete-hero { min-height: 620px; padding-top: 100px; padding-bottom: 100px; }
       .athlete-hero-photo { left: 28%; opacity: .6; }
       .athlete-hero-photo::after { background: linear-gradient(90deg, #061b11, rgba(6,27,17,.55) 55%, transparent); }
     }
     @media (max-width: 480px) {
-      .athlete-hero { min-height: 430px; }
+      .athlete-hero { min-height: 580px; padding-top: 70px; padding-bottom: 70px; }
+      .athlete-question-break { display: none; }
       .athlete-hero-photo { left: 12%; opacity: .42; }
       .athlete-hero h1 { font-size: clamp(42px, 12vw, 57px); max-width: 350px; }
       .athlete-hero-rule { width: 105px; margin: 26px 0; }
@@ -474,7 +476,8 @@
     <div class="athlete-hero-copy">
       <h1 id="athlete-headline">Bigger. Stronger. Faster.</h1>
       <div class="athlete-hero-rule" aria-hidden="true"></div>
-      <p>You know what you want.<br />Do you know how much to eat to get there?</p>
+      <p class="athlete-hero-lead">You’re putting in the work.</p>
+      <p>Do you know how much food you need<br class="athlete-question-break" /> to get where you want to go?</p>
     </div>
   </section>
 
