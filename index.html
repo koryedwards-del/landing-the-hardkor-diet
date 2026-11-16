@@ -465,6 +465,8 @@
     .guide-card h3 { margin: 0 0 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 36px; color: #fff; }
     .guide-card-credential { margin: 0; font-size: 20px; line-height: 1.4; color: #d4d4d4; }
     @media (max-width: 600px) { .guide-card { padding: 28px 20px; } .guide-card-person { flex-direction: column; gap: 20px; text-align: center; } .guide-card-person img { width: 140px; height: 140px; } .guide-card h3 { font-size: 32px; } .guide-card-credential { font-size: 18px; } }
+    .guide-card-details { display: flex; align-items: center; justify-content: space-between; gap: 16px 28px; flex-wrap: wrap; margin-top: 32px; font-family: Barlow, Arial, sans-serif; font-size: 20px; line-height: 1.4; color: #d4d4d4; }
+    @media (max-width: 600px) { .guide-card-details { justify-content: center; text-align: center; font-size: 18px; } }
   </style>
 </head>
 <body>
@@ -597,8 +599,11 @@
           <div>
             <h3 id="guide-name">Kory Edwards</h3>
             <p class="guide-card-credential">Certified Sports Nutrition Specialist</p>
-            <p class="guide-card-credential">253-988-6946</p>
           </div>
+        </div>
+        <div class="guide-card-details">
+          <span>253-988-6946</span>
+          <span>kory@thehardkordiet.com</span>
         </div>
       </aside>
     </div>
