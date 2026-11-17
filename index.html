@@ -255,7 +255,7 @@
     }
 
     #who {
-      scroll-margin-top: calc(var(--nav-height) - var(--scroll-anchor-offset));
+      scroll-margin-top: calc(var(--nav-height) + 16px - var(--scroll-anchor-offset));
     }
     #pricing {
       scroll-margin-top: var(--scroll-anchor-offset);
@@ -581,9 +581,9 @@
     </div>
   </section>
 
-  <section class="who" id="who">
+  <section class="who">
     <div class="who-inner">
-      <aside class="guide-card" aria-labelledby="guide-name">
+      <aside class="guide-card" id="who" aria-labelledby="guide-name">
         <p class="guide-card-label">Meet your guide</p>
         <p class="guide-card-history">Helping athletes since 1982.</p>
         <p class="guide-card-purpose">My job isn’t to give you more information.<br />It’s to help you understand what matters.</p>
