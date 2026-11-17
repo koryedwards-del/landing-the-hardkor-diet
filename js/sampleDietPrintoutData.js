@@ -127,7 +127,7 @@ export function buildSampleDietPrintoutPayload(pkg, options = {}) {
     leanBodyMass: intake.leanBodyMass,
   });
   const fatLost = projection ? projection.fatLostLbs.toFixed(1) : '—';
-  const exerciseParagraph = `Your reported weekly activity: ${hours.wt} hours lifting, ${hours.cardio} hours pushing hard outside of lifting, and ${hours.fatBurn} hours just cruising.`;
+  const exerciseParagraph = `You indicate you intend to do ${hours.wt} hours lifting, ${hours.cardio} hours pushing hard outside of lifting, and ${hours.fatBurn} hours just cruising each week.`;
 
   const weeklyLine = 'The chart shows a fat-loss projection based on your information. It does not mean you need to reach that weight or body-fat percentage. We will discuss how these numbers relate to your goals.\n\nMuscle gain depends on the balance of training, food and recovery, so it is less predictable than fat loss. We will track your progress through changes in strength, training energy and body composition.';
 
