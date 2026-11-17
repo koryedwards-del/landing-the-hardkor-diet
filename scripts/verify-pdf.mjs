@@ -82,7 +82,7 @@ const athletePayload = buildSampleDietPreviewPayload();
 if (athletePayload.clientName !== 'SAMPLE ATHLETE' || athlete.intake.sex !== 'male' ||
     athlete.intake.heightInches !== 74 || athlete.intake.totalWeight !== 190 ||
     athlete.intake.fatPercent !== 16 || athlete.intake.leanBodyMass !== 159.6 ||
-    athlete.intake.weightTrainingHours !== 8 || athlete.intake.cardioHours !== 8 ||
+    athlete.intake.weightTrainingHours !== 4 || athlete.intake.cardioHours !== 4 ||
     athlete.intake.fatBurningHours !== 0) {
   throw new Error('Athlete sample does not match the approved profile.');
 }
