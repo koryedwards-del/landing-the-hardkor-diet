@@ -2,7 +2,9 @@
 /** Burn & Build Diet PDF verification — run: npm run verify:pdf */
 
 import { buildHandbookFaqPayload } from '../js/handbookFaqPrintoutData.js';
-import { buildSampleDietPreviewPayload } from '../js/sampleDietPrintoutData.js';
+import { buildSampleDietPreviewPayload, buildSampleDietPrintoutPayload } from '../js/sampleDietPrintoutData.js';
+import { buildGoldenSamplePackage } from '../js/printoutVerifyFixtures.js';
+import { buildSampleDietPreviewPackage } from '../js/sampleDietPreviewFixtures.js';
 import {
   HANDBOOK_FAQ_PRINTOUT_MIN_PAGES,
   renderHandbookFaqPrintout,
@@ -40,7 +42,7 @@ if (!filename.endsWith('.pdf') || filename.includes('&')) {
 }
 console.log(`ok  sanitizePdfFilename — ${filename}`);
 
-const samplePayload = buildSampleDietPreviewPayload();
+const samplePayload = buildSampleDietPrintoutPayload(buildGoldenSamplePackage());
 validateSampleDietPayload(samplePayload);
 assertPdf('The HARDKOR Diet (golden sample)', await renderSampleDietPrintout(samplePayload), {
   minPages: SAMPLE_DIET_PRINTOUT_MIN_PAGES,
@@ -74,6 +76,19 @@ if (samplePayload.servings.gridRows?.[0]?.daily !== '9') {
   throw new Error(`protein servings: got ${samplePayload.servings.gridRows?.[0]?.daily}`);
 }
 console.log('ok  golden sample diet payload');
+
+const athlete = buildSampleDietPreviewPackage();
+const athletePayload = buildSampleDietPreviewPayload();
+if (athletePayload.clientName !== 'SAMPLE ATHLETE' || athlete.intake.sex !== 'male' ||
+    athlete.intake.heightInches !== 74 || athlete.intake.totalWeight !== 190 ||
+    athlete.intake.fatPercent !== 16 || athlete.intake.leanBodyMass !== 159.6 ||
+    athlete.intake.weightTrainingHours !== 8 || athlete.intake.cardioHours !== 8 ||
+    athlete.intake.fatBurningHours !== 0) {
+  throw new Error('Athlete sample does not match the approved profile.');
+}
+assertPdf('The HARDKOR Diet (athlete sample)', await renderSampleDietPrintout(athletePayload), {
+  minPages: SAMPLE_DIET_PRINTOUT_MIN_PAGES,
+});
 
 assertPdf('menu plan worksheet (blank)', await renderMenuPlanWorksheet(), { minPages: 1 });
 
