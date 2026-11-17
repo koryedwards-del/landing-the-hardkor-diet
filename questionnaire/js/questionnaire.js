@@ -60,7 +60,7 @@ const STEP_HEADINGS = [
 ];
 
 const STEP_HEADING_NOTES = {
-  5: 'Confirm your answers, then continue to secure checkout ($279). Use Back below to fix anything.',
+  5: 'Confirm your answers, then continue to secure checkout ($329). Use Back below to fix anything.',
 };
 
 const INFO_FIELDS = [

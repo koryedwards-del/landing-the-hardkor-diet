@@ -379,9 +379,9 @@ function renderPlanReady() {
           ${store.saveError ? `<button type="button" class="btn-secondary unlock-cta-secondary" data-retry-save ${store.saveBusy ? 'disabled' : ''}>${store.saveBusy ? 'SAVING…' : 'Retry save'}</button>` : ''}`
       : store.stripeConfigured ? `
           <button type="button" class="btn-primary unlock-cta" data-start-checkout ${store.checkoutBusy ? 'disabled' : ''}>
-            ${store.checkoutBusy ? 'OPENING CHECKOUT…' : 'COMPLETE PURCHASE — $279'}
+            ${store.checkoutBusy ? 'OPENING CHECKOUT…' : 'COMPLETE PURCHASE — $329'}
           </button>
-          <p class="unlock-hint">Secure checkout · One-time $279 · Yours for life</p>
+          <p class="unlock-hint">Secure checkout · One-time $329 · Yours for life</p>
           ${store.checkoutTestBypass ? '<button type="button" class="btn-secondary unlock-cta-secondary" data-test-checkout>Skip payment (local test)</button>' : ''}`
       : `
           <p class="unlock-hint">Checkout is not available yet. Email ${CONTACT_EMAIL} if you need help.</p>
