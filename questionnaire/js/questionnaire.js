@@ -282,11 +282,11 @@ function bindAccordionMoreInfo(root) {
 const OCCUPATION_FIELD_META = {
   workPhysical: {
     question: INTAKE_FIELD_QUESTIONS.workPhysical,
-    guide: 'Most people work 40–48 hours a week. That is a lot of time — your job activity affects how many servings you need every day. Pick what describes most workdays, not your hardest day.',
+    guide: 'Outside of practice and training. Choose what describes most school days, not your most active day.',
   },
   workStress: {
     question: INTAKE_FIELD_QUESTIONS.workStress,
-    guide: 'Kids, soccer, errands, caregiving — the normal rhythm of your life when you\'re not at work and not exercising.',
+    guide: 'Homework, friends, chores, and other commitments — your usual routine outside school, practice, and training.',
   },
 };
 
@@ -294,33 +294,33 @@ const OCCUPATION_CHOICE_COPY = {
   workPhysical: {
     sitting: {
       label: 'Sitting',
-      sub: 'Desk, computer, driving, reception — accountant, software developer, office clerk, administrative assistant, data entry clerk, graphic designer, attorney, call center agent, receptionist, long-haul driver.',
+      sub: 'Mostly seated in class or studying, with walks between classes.',
     },
     feet: {
       label: 'Moving',
-      sub: 'On your feet most of the shift — nurse, teacher, retail associate, server, bartender, chef, pharmacist, hairdresser, security guard, bank teller.',
+      sub: 'On your feet and walking for much of the school day, beyond changing classes.',
     },
     carrying: {
       label: 'Lifting',
-      sub: 'Regular carrying, loading, or trades work — warehouse worker, construction laborer, delivery driver, material handler, electrician, plumber, carpenter, mover, landscaper, factory production worker.',
+      sub: 'Regular lifting or carrying during hands-on classes or school activities, outside training.',
     },
     heavy: {
       label: 'Heavy labor',
-      sub: 'Moving heavy loads all day. Brick, concrete, roofing — masonry, concrete finisher, roofer, demolition laborer, steel worker.',
+      sub: 'Demanding physical work for much of the day, such as an intensive vocational program. Do not count lifting workouts.',
     },
   },
   workStress: {
     comfortable: {
       label: 'Comfortable',
-      sub: 'Manageable pace — time for recovery and the normal rhythm of life outside work and training.',
+      sub: 'Manageable homework and commitments, with time to relax and recover.',
     },
     busy: {
       label: 'Busy',
-      sub: 'Kids, sports, errands, and obligations most days — a full schedule you generally keep up with.',
+      sub: 'Homework, chores, friends, or a part-time job — a full schedule you generally keep up with.',
     },
     stressful: {
       label: 'Stressful',
-      sub: 'High demand most weeks — caregiving, tight schedules, little margin when things pile up.',
+      sub: 'Schoolwork and other responsibilities feel demanding most weeks, with little downtime.',
     },
   },
 };
