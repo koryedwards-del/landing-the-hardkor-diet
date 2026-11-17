@@ -10,7 +10,7 @@ export const INTAKE_FIELD_QUESTIONS = Object.freeze({
   workStress: 'Your life outside school and training',
   birthDate: 'What is your birthdate?',
   weightTrainingHours: 'How many hours a week do you spend lifting?',
-  cardioHours: 'How many hours a week are you pushing hard?',
+  cardioHours: 'Outside of lifting, how many hours a week are you pushing hard?',
   fatBurningHours: 'How many hours a week are you just cruising?',
   height: 'What is your height?',
   totalWeight: 'What is your weight?',
