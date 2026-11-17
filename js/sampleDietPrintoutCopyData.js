@@ -25,14 +25,14 @@ export const SAMPLE_DIET_WELCOME = Object.freeze({
 export const SAMPLE_DIET_LBA = Object.freeze({
   aceLead: 'How much body fat is right for you is a personal choice. If you have more body fat than you personally want, your HARDKOR Diet plan gives you a path toward changing it.',
   lbaRecheckHeading: 'RECHECK YOUR PROGRESS',
-  lbaRecheckBody: 'Recheck your body composition every 6–8 weeks. The goal is to see fat coming down while protecting your lean body mass, strength and energy.',
+  lbaRecheckBody: 'Recheck your body composition every 6–8 weeks. Review the changes with Kory alongside your strength, training energy and goals.',
   congratsSuffix: 'Even so, it\'s a good idea to exercise at least twice a week. If you want to gain lean or maybe just tone and shape your body, do so by participating in a weight-training program two to three times a week under the guidance of an experienced trainer. The table below tells us what you would weigh for the different health categories based on your current Lean Body Mass. Increasing or decreasing your LBM would increase or decrease the suggested body weight accordingly. For maximum success, feed your body properly. This diet will show you how much food you need daily for maximum results.',
   alertSuffix: 'Exercise at least twice a week and follow this diet to support lean gain while losing fat. The table below tells us what you would weigh for the different health categories based on your current Lean Body Mass.',
   /** LBA page — connects lean mass to the weight-range table. */
   lbmWhyHeading: 'Why Lean Body Mass Matters',
-  lbmWhyLead: 'Lean body mass (predominantly muscle) is your strength, your energy, and your true body shape under your fat. It\'s your muscle, bones, organs, skin, hair, and hormones.',
-  lbmWhyPunchline: 'Actually, it\'s you.',
-  lbmWhyClosing: 'Eating to keep your muscle (LBM) is a solid move toward being as healthy and vibrant as possible. When your lean mass is gone, you are gone.',
+  lbmWhyLead: 'Lean body mass is everything in your body other than fat, including muscle, bones, organs and body water. Your muscle helps you produce strength and power for your sport.',
+  lbmWhyPunchline: 'Your progress is more than a number on the scale.',
+  lbmWhyClosing: 'Your food plan supports your training. Review changes in lean body mass with Kory in relation to your strength, energy and athletic goals.',
 });
 
 /** Lean Body Analysis page — section headings (user-authored). */
@@ -65,7 +65,7 @@ export function sampleDietCaloriesTableSummaryHeading(fatLostLbs) {
 export const SAMPLE_DIET_CALORIES_TABLE_SUMMARY = Object.freeze({
   heading: sampleDietCaloriesTableSummaryHeading(11.0),
   body:
-    'The table below shows what happens when you eat too much or too little protein, carbohydrates and fat. The key to having your strength and energy and losing fat is cutting the fine line between too much and too little.\n\nAnd that\'s what the servings on the next page do for you. No counting. No calculating. Just follow the servings and choose foods from the food lists.',
+    'The table below shows what happens when you eat too much or too little protein, carbohydrates and fat. The key to having your strength and energy and losing fat is cutting the fine line between too much and too little.\n\nAnd that\'s what the servings on page 2 do for you. No counting. No calculating. Just follow the servings and choose foods from the food lists.',
 });
 
 /** Food Plan page — calories table (user-authored; do not reauthor). */
@@ -102,31 +102,31 @@ export const SAMPLE_DIET_GETTING_STARTED_HEADING = 'GETTING STARTED';
 export const SAMPLE_DIET_GETTING_STARTED_RULES = Object.freeze([
   'Eat all the servings recommended.',
   'Alternate meals with fruit snacks.',
-  'Eat every two to three hours.',
-  'Eliminate extra fats, sugar and alcohol. They slow down your fat loss.',
+  'Eat every three hours or sooner.',
+  'Follow your food list and portions. Ask Kory about extras or substitutions.',
 ]);
 
 export const SAMPLE_DIET_HELPFUL_TIPS_HEADING = 'Helpful Tips';
 
 export const SAMPLE_DIET_HELPFUL_TIPS_SALT = Object.freeze({
-  title: 'Salt',
+  title: 'Plan Ahead',
   body:
-    'Using salt is a personal choice. Most people find when they eat less fat, they also eat less salt (chips, cheese, margarine, bacon, sausage, fast food)—you get the point.',
+    'Plan meals and fruit snacks around school and practice. Pack what you need so you can eat every three hours or sooner.',
 });
 
 export const SAMPLE_DIET_HELPFUL_TIPS_BEVERAGES = Object.freeze({
   title: 'Beverages',
   body:
-    'Coffee, tea, diet drinks and seltzer water are fine. Although they do not affect fat loss, you may want to avoid them for other health reasons. Water is the best drink in the house. A simple rule is to drink a glass with every meal and snack that you eat.',
+    'Keep water available during your school day and training. Ask Kory about drinks and how they fit your plan.',
 });
 
 export const SAMPLE_DIET_FOOD_LIST_INTRO =
-  'The amount shown is calculated to match your servings. No math needed.';
+  'The amount beside each food is your personalized serving size.';
 
 export const SAMPLE_DAY_MENU_PAGE_TITLE = 'Menu Plan for day or week of:';
 
 /** Modern Menu Plan page (sample diet page 2) — user-authored; do not reauthor. */
-export const SAMPLE_DAY_MENU_INTRO = 'See how easy it is to build your day.';
+export const SAMPLE_DAY_MENU_INTRO = 'Adjust these times around school and training. Eat every three hours or sooner.';
 
 export const SAMPLE_DAY_MENU_CALLOUT_TITLE = 'BUILD YOUR OWN DAY';
 

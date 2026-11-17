@@ -51,8 +51,8 @@ function buildLbmCallout({ gender, heightInches, leanBodyMass, today }) {
     return null;
   }
   const statusLine = analysis.atOrAbove
-    ? 'Your LBM is at or above the desirable amount for your height.'
-    : 'Your LBM is below the desirable amount for your height.';
+    ? 'Your LBM is at or above this height-based reference. Review it with Kory against your athletic goals.'
+    : 'Your LBM is below this height-based reference. Review it with Kory against your athletic goals.';
   return { leanLbs: leanDisplay, statusLine };
 }
 
@@ -68,7 +68,7 @@ function lbmStatusCopy1982({ heightInches, leanBodyMass, gender }) {
   if (!analysis.desirableLbm) {
     return { lead: '', congrats: '', alert: '' };
   }
-  const lead = `Desirable lean body mass for your height is ${Math.round(analysis.desirableLbm)} pounds or more.`;
+  const lead = `The height-based lean body mass reference is ${Math.round(analysis.desirableLbm)} pounds or more. This is a reference, not your individual goal.`;
   if (analysis.atOrAbove) {
     return {
       lead,
@@ -79,7 +79,7 @@ function lbmStatusCopy1982({ heightInches, leanBodyMass, gender }) {
   return {
     lead,
     congrats: '',
-    alert: `ALERT! Your LBM is below the desirable amount for your height. ${SAMPLE_DIET_LBA.alertSuffix}`,
+    alert: `ALERT! Your LBM is below this height-based reference. Review it with Kory against your athletic goals. ${SAMPLE_DIET_LBA.alertSuffix}`,
   };
 }
 
@@ -128,7 +128,7 @@ export function buildSampleDietPrintoutPayload(pkg, options = {}) {
   });
   const fatLost = projection ? projection.fatLostLbs.toFixed(1) : '—';
   const exerciseParagraph = projection
-    ? `In eight weeks, you could lose ${fatLost} pounds of fat. On your information sheet, you indicated you plan to exercise a total of ${hours.total} hour(s) per week. ${hours.wt} hour(s) of ${INTAKE_WEIGHTS_RACQUET_SPORTS}, ${hours.cardio} hour(s) of cardiovascular activities, ${hours.fatBurn} hour(s) of fat-burning activities`
+    ? `In eight weeks, you could lose ${fatLost} pounds of fat. On your information sheet, you indicated you plan to exercise a total of ${hours.total} hour(s) per week. ${hours.wt} hour(s) of lifting, ${hours.cardio} hour(s) pushing hard outside of lifting, ${hours.fatBurn} hour(s) just cruising`
     : '';
 
   const weeklyLine = projection
