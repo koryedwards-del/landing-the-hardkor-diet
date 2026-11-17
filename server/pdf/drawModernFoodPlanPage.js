@@ -151,7 +151,7 @@ function drawModernGoalDashboard(doc, x, y, width, goalTable, fatLostLbs) {
   const rightX = x + sideW + centerW;
 
   [leftX, rightX].forEach((colX, index) => {
-    const title = index === 0 ? 'TODAY' : '8-WEEK GOAL';
+    const title = index === 0 ? 'TODAY' : '8-WEEK PROJECTION';
     const bandTop = y + pad;
     const bandW = sideW - pad * 2;
     doc

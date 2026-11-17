@@ -50,22 +50,19 @@ export function sampleDietLbaWeightRangesHeading(leanLbs) {
 }
 
 export const SAMPLE_DIET_FOOD_PLAN = Object.freeze({
-  lead: 'The following food program is calculated from your individual lean body mass (LBM) and your activities. Your food plan is calculated specifically for you.',
+  lead: 'Your goals set the direction. Build muscle. Get stronger. Fuel your training. You may also want to reduce body fat to improve speed or reach a competition weight class.\n\nNot every athlete needs or wants to lose fat. You may already be where you want to be. We will review your body composition, training and goals together.\n\nYour food plan uses your lean body mass and activity to calculate how much food you need.',
   projectionSuffix: 'In addition, you could gain lean weight. Gaining lean weight will increase your strength and energy and offset your fat loss.',
   macroIntro: 'How much food you need each day depends on how much LBM you have. Also, it depends on your activity level and the type and amount of exercise you participate in. Based on the information you provided, the following table gives you the number of calories and the amount of protein, carbohydrates and fat you need per day to maintain your fat or to reduce body fat. Also listed is what your body requires at rest (your resting metabolic rate), for your workday and for one hour of each type of exercise.',
 });
 
 /** Food Plan page — summary above calories table (user-authored; do not reauthor). */
-export function sampleDietCaloriesTableSummaryHeading(fatLostLbs) {
-  const n = Number(fatLostLbs);
-  const lbs = Number.isFinite(n) ? n.toFixed(1) : '11.0';
-  return `OK, SO HOW DO I LOSE ${lbs} POUNDS OF FAT IN EIGHT WEEKS?`;
+export function sampleDietCaloriesTableSummaryHeading() {
+  return 'PUT YOUR PLAN TO WORK';
 }
 
 export const SAMPLE_DIET_CALORIES_TABLE_SUMMARY = Object.freeze({
-  heading: sampleDietCaloriesTableSummaryHeading(11.0),
-  body:
-    'The table below shows what happens when you eat too much or too little protein, carbohydrates and fat. The key to having your strength and energy and losing fat is cutting the fine line between too much and too little.\n\nAnd that\'s what the servings on page 2 do for you. No counting. No calculating. Just follow the servings and choose foods from the food lists.',
+  heading: sampleDietCaloriesTableSummaryHeading(),
+  body: 'Eat all your recommended servings. Eat every three hours or sooner. Choose foods from your personalized lists.\n\nYour daily servings are on page 2. No counting. No calculating. We will review your progress together and adjust your plan as needed.\n\nUse the table below with Kory to discuss why the right amounts of protein, carbohydrates and fat matter for your goals.',
 });
 
 /** Food Plan page — calories table (user-authored; do not reauthor). */

@@ -127,13 +127,9 @@ export function buildSampleDietPrintoutPayload(pkg, options = {}) {
     leanBodyMass: intake.leanBodyMass,
   });
   const fatLost = projection ? projection.fatLostLbs.toFixed(1) : '—';
-  const exerciseParagraph = projection
-    ? `In eight weeks, you could lose ${fatLost} pounds of fat. On your information sheet, you indicated you plan to exercise a total of ${hours.total} hour(s) per week. ${hours.wt} hour(s) of lifting, ${hours.cardio} hour(s) pushing hard outside of lifting, ${hours.fatBurn} hour(s) just cruising`
-    : '';
+  const exerciseParagraph = `Your reported weekly activity: ${hours.wt} hours lifting, ${hours.cardio} hours pushing hard outside of lifting, and ${hours.fatBurn} hours just cruising.`;
 
-  const weeklyLine = projection
-    ? `Your plan projects an average fat loss of ${projection.weeklyFatLossLbs.toFixed(1)} pounds per week. ${SAMPLE_DIET_FOOD_PLAN.projectionSuffix}`
-    : '';
+  const weeklyLine = 'The chart shows a fat-loss projection based on your information. It does not mean you need to reach that weight or body-fat percentage. We will discuss how these numbers relate to your goals.\n\nBuilding muscle can also change your body weight. We will look at your strength, training energy and body composition, not just the scale.';
 
   const activeBfCategory = aceActiveBodyFatCategory(gender, intake.fatPercent);
 
