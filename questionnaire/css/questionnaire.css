@@ -1542,3 +1542,6 @@ body.q-keyboard-open.q-app--workroom .q-header {
 .intake-review--paper > div:first-child {
   padding-top: 0.25rem;
 }
+
+/* Keep the gold dumbbell in its natural proportions. */
+.q-app--workroom .q-logo { object-fit: contain; }
