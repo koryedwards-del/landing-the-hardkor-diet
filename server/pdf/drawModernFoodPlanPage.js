@@ -177,12 +177,12 @@ function drawModernGoalDashboard(doc, x, y, width, goalTable, fatLostLbs) {
     .roundedRect(centerX + 4, y + pad, centerW - 8, bodyH - pad * 2, 6)
     .fill(colors.goldPale);
 
-  const lossText = fatLostLbs != null ? `-${Number(fatLostLbs).toFixed(1)}` : '—';
+  const lossText = fatLostLbs != null ? Number(fatLostLbs).toFixed(1) : '—';
   doc
     .font(fonts.bold)
     .fontSize(8)
     .fillColor(colors.body)
-    .text('YOU COULD LOSE', centerX, y + pad + 18, {
+    .text('EXAMPLE PROJECTION', centerX, y + pad + 18, {
       width: centerW,
       align: 'center',
       lineGap: 0,
@@ -200,7 +200,7 @@ function drawModernGoalDashboard(doc, x, y, width, goalTable, fatLostLbs) {
     .font(fonts.bold)
     .fontSize(9)
     .fillColor(colors.body)
-    .text('LBS FAT', centerX, y + pad + 64, {
+    .text('LBS FAT LOSS', centerX, y + pad + 64, {
       width: centerW,
       align: 'center',
       lineGap: 0,
