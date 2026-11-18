@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Regenerate root PWA / favicon PNGs + favicon.ico from img/brand/hardkor-logo-gold-dumbbell.png.
+ * Regenerate root PWA / favicon PNGs + favicon.ico from img/brand/hardkor-logo-official-h.png.
  * Opaque #0A0A0A square canvas, logo scaled to max size with squircle safe inset (~5%).
  */
 import fs from 'fs';
@@ -10,10 +10,10 @@ import sharp from 'sharp';
 import toIco from 'to-ico';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SOURCE = path.join(root, 'img/brand/hardkor-logo-gold-dumbbell.png');
+const SOURCE = path.join(root, 'img/brand/hardkor-logo-official-h.png');
 const BG = { r: 10, g: 10, b: 10, alpha: 1 };
 const ALPHA_THRESHOLD = 10;
-/** Fraction of canvas edge reserved so macOS squircle mask does not clip tagline/rocks */
+/** Fraction of canvas edge reserved so macOS squircle mask does not clip the emblem */
 const SAFE_INSET = 0.05;
 
 function boundsFromAlpha(data, width, height, channels) {

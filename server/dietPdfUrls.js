@@ -37,7 +37,7 @@ export function siteOrigin() {
 
 /** Public logo URL for transactional email (hosted on GitHub Pages). */
 export function brandLogoUrl() {
-  return `${publicSiteOrigin()}/img/brand/hardkor-logo-gold-dumbbell.png`;
+  return `${publicSiteOrigin()}/img/brand/hardkor-logo-official-h.png`;
 }
 
 export function menuPlanWorksheetUrl() {
