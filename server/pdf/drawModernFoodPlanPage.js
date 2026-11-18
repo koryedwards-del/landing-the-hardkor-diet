@@ -19,13 +19,10 @@ const LAYOUT = Object.freeze({
   bodyLineGap: 2,
   paragraphGap: 5,
   sectionGap: 6,
-  tableHeadSize: 8,
-  tableBodySize: 8,
   dashboardHeadSize: 7.5,
   dashboardValueSize: 10,
   dashboardPctSize: 7,
   lossValueSize: 22,
-  cellPad: 5,
   footerReserve: 36,
 });
 
@@ -240,127 +237,6 @@ function drawModernGoalDashboard(doc, x, y, width, goalTable, fatLostLbs) {
   return y + bodyH;
 }
 
-const CALORIES_TABLE_LABEL_WIDTH = 0.22;
-
-function caloriesTableColDefs(columns = []) {
-  const dataW = (1 - CALORIES_TABLE_LABEL_WIDTH) / Math.max(columns.length, 1);
-  return [
-    { key: 'label', width: CALORIES_TABLE_LABEL_WIDTH, align: 'left' },
-    ...columns.map((col) => ({ key: col.key, width: dataW, align: 'center' })),
-  ];
-}
-
-function measureCaloriesTableRow(doc, row, colDefs, colWidths, { isHeader, rowPad, fonts }) {
-  let maxH = rowPad * 2;
-  colDefs.forEach((col, index) => {
-    const innerW = colWidths[index] - LAYOUT.cellPad * 2;
-    doc.font(isHeader || row._bold ? fonts.bold : fonts.regular).fontSize(
-      isHeader ? LAYOUT.tableHeadSize : LAYOUT.tableBodySize,
-    );
-    const text = String(row[col.key] ?? '');
-    maxH = Math.max(
-      maxH,
-      doc.heightOfString(text, { width: innerW, lineGap: 0 }) + rowPad * 2,
-    );
-  });
-  return maxH;
-}
-
-function drawModernCaloriesTable(doc, x, y, width, caloriesTable) {
-  const fonts = MODERN_FOOD_PLAN_FONTS;
-  const colors = MODERN_FOOD_PLAN_COLORS;
-  const columns = caloriesTable?.columns || [];
-  const bodyRows = caloriesTable?.rows || [];
-  if (!columns.length || !bodyRows.length) return y;
-
-  const maxY = modernContentBox(doc).bottom - LAYOUT.footerReserve;
-  const colDefs = caloriesTableColDefs(columns);
-  const colWidths = colDefs.map((col) => col.width * width);
-  const colXs = [];
-  let cx = x;
-  for (const w of colWidths) {
-    colXs.push(cx);
-    cx += w;
-  }
-
-  const rowPad = LAYOUT.cellPad;
-  const headerRow = {
-    label: '',
-    ...Object.fromEntries(columns.map((col) => [col.key, col.label])),
-  };
-  const headerH = measureCaloriesTableRow(doc, headerRow, colDefs, colWidths, {
-    isHeader: true,
-    rowPad,
-    fonts,
-  });
-  const bodyHeights = bodyRows.map((row) => measureCaloriesTableRow(doc, row, colDefs, colWidths, {
-    isHeader: false,
-    rowPad,
-    fonts,
-  }));
-  const totalH = headerH + bodyHeights.reduce((sum, h) => sum + h, 0);
-  if (y + totalH > maxY) {
-    return y;
-  }
-
-  doc
-    .strokeColor(colors.gold)
-    .lineWidth(1.25)
-    .roundedRect(x, y, width, totalH, 4)
-    .stroke();
-
-  let cy = y;
-  doc.rect(x + 0.5, cy, width - 1, headerH).fill(colors.goldPale);
-  colDefs.forEach((col, index) => {
-    const text = String(headerRow[col.key] ?? '');
-    if (!text) return;
-    doc
-      .font(fonts.bold)
-      .fontSize(LAYOUT.tableHeadSize)
-      .fillColor(colors.body)
-      .text(text, colXs[index] + LAYOUT.cellPad, cy + rowPad, {
-        width: colWidths[index] - LAYOUT.cellPad * 2,
-        align: col.align || 'left',
-        lineGap: 0,
-      });
-  });
-  cy += headerH;
-  doc
-    .strokeColor(colors.gold)
-    .lineWidth(0.75)
-    .moveTo(x, cy)
-    .lineTo(x + width, cy)
-    .stroke();
-
-  bodyRows.forEach((row, rowIndex) => {
-    const rh = bodyHeights[rowIndex];
-    colDefs.forEach((col, index) => {
-      const cellText = String(row[col.key] ?? '');
-      const isLabel = col.key === 'label';
-      doc
-        .font(isLabel ? fonts.bold : fonts.regular)
-        .fontSize(LAYOUT.tableBodySize)
-        .fillColor(colors.body)
-        .text(cellText, colXs[index] + LAYOUT.cellPad, cy + rowPad, {
-          width: colWidths[index] - LAYOUT.cellPad * 2,
-          align: col.align || 'left',
-          lineGap: 0,
-        });
-    });
-    cy += rh;
-    if (rowIndex < bodyRows.length - 1) {
-      doc
-        .strokeColor(colors.gold)
-        .lineWidth(0.75)
-        .moveTo(x, cy)
-        .lineTo(x + width, cy)
-        .stroke();
-    }
-  });
-
-  return y + totalH;
-}
-
 export function drawModernFoodPlanPage(doc, payload) {
   const page = begin1982Page(doc, payload, 'IN 8 WEEKS');
   const fp = payload.foodPlan || {};
@@ -398,11 +274,7 @@ export function drawModernFoodPlanPage(doc, payload) {
       y = doc.y + LAYOUT.paragraphGap;
     }
     if (caloriesSummary.body) {
-      y = drawBodyParagraph(doc, page.x, y, page.width, caloriesSummary.body);
+      drawBodyParagraph(doc, page.x, y, page.width, caloriesSummary.body);
     }
-  }
-
-  if (fp.caloriesTable?.rows?.length) {
-    drawModernCaloriesTable(doc, page.x, y + LAYOUT.sectionGap, page.width, fp.caloriesTable);
   }
 }
