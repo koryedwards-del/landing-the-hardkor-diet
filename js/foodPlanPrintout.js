@@ -3,7 +3,7 @@
 import { computeDietEightWeekProjection } from './bodyCompositionData.js';
 
 function formatHours(n) {
-  return Number(n).toFixed(2);
+  return Number(n).toFixed(2).replace(/\.?0+$/, '');
 }
 
 export function exerciseHoursSummary(intake) {
