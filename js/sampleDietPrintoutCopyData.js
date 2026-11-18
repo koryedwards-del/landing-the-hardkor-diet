@@ -62,7 +62,7 @@ export function sampleDietCaloriesTableSummaryHeading() {
 
 export const SAMPLE_DIET_CALORIES_TABLE_SUMMARY = Object.freeze({
   heading: sampleDietCaloriesTableSummaryHeading(),
-  body: 'Follow the daily servings on page 2, choosing foods from your personalized lists and eating all your recommended servings every three hours or sooner. Your servings and food lists give you the amounts to use without counting calories or calculating macros. We will review your progress together and adjust your plan as needed.',
+  body: 'Follow the daily servings on page 2, choosing foods from your personalized lists. Eat all your recommended daily servings, spread across meals and fruit snacks. Eat every three hours or sooner. Your servings and food lists give you the amounts to use without counting calories or calculating macros. We will review your progress together and adjust your plan as needed.',
 });
 
 /** Food Plan page — calories table (user-authored; do not reauthor). */
