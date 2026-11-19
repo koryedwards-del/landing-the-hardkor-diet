@@ -32,7 +32,7 @@ CSS class names (`intake-form__*`, `intake-acc__*`) and `pkg.intake` stay as-is 
 
 ## PDF page 1 — not a separate file
 
-The HARDKOR Diet PDF is **one 6-page document**. Page 1 lists the customer's submitted answers, followed by Daily Servings, two Food List pages, Menu Plan, and Lean Body Analysis.
+The HARDKOR Diet PDF is **one 6-page document**. Page 1 lists the customer's submitted answers, followed by Daily Servings, two Food List pages, Menu Plan, and What’s Possible.
 
 | Code | Role |
 |------|------|

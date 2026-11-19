@@ -54,7 +54,7 @@ When in doubt, match Food Plan: typography scale, gold accents, table treatment,
 | Menu Plan | `drawModernMenuPlanPage.js` |
 | Servings | `drawModernServingsPage.js` |
 | Food List | `drawStaplesFoodListPages.js` |
-| Lean Body Analysis | `drawModernLeanBodyAnalysisPage.js` |
+| What’s Possible | `drawWhatsPossiblePage.js` |
 | Questionnaire confirmation | `drawAnswersConfirmationPage.js` |
 
 **Standalone (not in diet PDF):**

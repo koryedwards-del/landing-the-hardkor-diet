@@ -15,7 +15,8 @@ import {
 } from './draw1982Frame.js';
 import { drawAnswersConfirmationPage } from './drawAnswersConfirmationPage.js';
 import { drawModernMenuPlanPage } from './drawModernMenuPlanPage.js';
-import { drawModernLeanBodyAnalysisPage } from './drawModernLeanBodyAnalysisPage.js';
+import { drawWhatsPossiblePage } from './drawWhatsPossiblePage.js';
+import { buildWhatsPossible } from '../../js/whatsPossiblePrintout.js';
 import { drawModernServingsPage } from './drawModernServingsPage.js';
 import {
   drawStaplesFoodListPage,
@@ -380,10 +381,6 @@ function drawStatusParagraph(doc, page, paragraph) {
     .fillColor(SEMINAR_COLORS.body)
     .text(status.rest, { width: page.width, lineGap: LAYOUT.lineGap, align: 'left' });
   return { ...page, y: doc.y + LAYOUT.paragraphGap };
-}
-
-function drawLeanBodyAnalysisPage(doc, payload) {
-  drawModernLeanBodyAnalysisPage(doc, payload);
 }
 
 function drawGoalTable(doc, x, y, width, goalTable) {
@@ -1036,7 +1033,7 @@ export async function renderSampleDietPrintout(payload, { title, buildLabel, hea
       doc.info.Subject = `B&B Sample Diet ${buildLabel}`;
     }
 
-    // Questionnaire, daily servings, food lists, menu plan, lean body analysis.
+    // Questionnaire, daily servings, food lists, menu plan, and What’s Possible.
     drawAnswersConfirmationPage(doc, payload);
     drawServingsPage(doc, payload);
 
@@ -1047,7 +1044,7 @@ export async function renderSampleDietPrintout(payload, { title, buildLabel, hea
     drawStaplesFoodListPage(doc, payload, foodListFrame);
     drawVegFruitFoodListPage(doc, payload, foodListFrame);
     drawSampleDayMenuPage(doc, payload);
-    drawLeanBodyAnalysisPage(doc, payload);
+    drawWhatsPossiblePage(doc, { ...payload, whatsPossible: payload.whatsPossible ?? buildWhatsPossible() });
 
     stamp1982Footers(doc, payload.header);
 

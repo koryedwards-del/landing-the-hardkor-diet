@@ -5,6 +5,7 @@ import { analyzeLeanBodyMass } from './bodyCompositionData.js';
 import { eightWeekProjectionFromPackage, exerciseHoursSummary } from './foodPlanPrintout.js';
 import { INTAKE_WEIGHTS_RACQUET_SPORTS, INTAKE_WEIGHTS_RACQUET_SPORTS_TITLE } from './intakeQuestionCopyData.js';
 import { servingsGridRows } from './servingsPrintout.js';
+import { buildWhatsPossible } from './whatsPossiblePrintout.js';
 import { lbaTodayTableRows } from './leanBodyAnalysisPrintout.js';
 import {
   ANSWERS_CONFIRMATION_INTRO,
@@ -142,6 +143,7 @@ export function buildSampleDietPrintoutPayload(pkg, options = {}) {
     preparedDateLong: formatProgramDateLong(programPreparedDate(pkg)),
     header: { ...SAMPLE_DIET_HEADER },
     welcome: { ...SAMPLE_DIET_WELCOME },
+    whatsPossible: buildWhatsPossible(intake),
     leanBodyAnalysis: {
       sections: { ...SAMPLE_DIET_LBA_SECTIONS },
       todayRows: lbaTodayTableRows(today),
