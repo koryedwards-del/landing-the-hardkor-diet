@@ -12,7 +12,7 @@ export const SAMPLE_DIET_PREVIEW_FORM = Object.freeze({
   weightText: '190',
   fatPercentText: '16',
   desiredWeight: '200',
-  desiredFatPercentUnknown: true,
+  desiredFatPercent: '10',
   fatSource: 'calipers',
   workPhysical: 'sitting',
   workStress: 'comfortable',
