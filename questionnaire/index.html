@@ -570,6 +570,29 @@
                     <p class="intake-acc__error" hidden></p>
                   </div>
                 </div>
+
+                <div class="intake-acc__item" data-body-field="desiredGoal">
+                  <button type="button" class="intake-acc__trigger" aria-expanded="false">
+                    <span class="intake-acc__num" aria-hidden="true"></span>
+                    <span class="intake-acc__label" data-acc-label></span>
+                    <span class="intake-acc__summary" hidden></span>
+                  </button>
+                  <div class="intake-acc__panel">
+                    <div class="intake-acc__qa-row intake-acc__qa-row--stacked">
+                      <span class="intake-acc__num" aria-hidden="true"></span>
+                      <p class="intake-acc__qa-question" data-acc-question></p>
+                    </div>
+                    <label class="intake-acc__field intake-inline">
+                      <span>Desired weight (lb)</span>
+                      <input class="intake-input intake-input--short" name="desiredWeight" inputmode="decimal" placeholder="Optional" />
+                    </label>
+                    <label class="intake-acc__field intake-inline">
+                      <span>Desired body fat (%)</span>
+                      <input class="intake-input intake-input--short" name="desiredFatPercent" inputmode="decimal" placeholder="Optional" />
+                    </label>
+                    <p class="intake-acc__error" hidden></p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -623,6 +646,6 @@
     </footer>
   </div>
 
-  <script type="module" src="js/questionnaire.js?v=186"></script>
+  <script type="module" src="js/questionnaire.js?v=187"></script>
 </body>
 </html>

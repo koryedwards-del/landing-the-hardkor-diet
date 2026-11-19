@@ -11,6 +11,7 @@ export const SAMPLE_DIET_PREVIEW_FORM = Object.freeze({
   age: 17,
   weightText: '190',
   fatPercentText: '16',
+  desiredWeight: '200',
   fatSource: 'calipers',
   workPhysical: 'sitting',
   workStress: 'comfortable',

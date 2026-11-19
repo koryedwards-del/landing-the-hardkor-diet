@@ -16,6 +16,7 @@ export const INTAKE_FIELD_QUESTIONS = Object.freeze({
   totalWeight: 'What is your weight?',
   fatPercent: 'What is your body fat percentage?',
   fatSource: 'How do you know?',
+  desiredGoal: 'What weight and body-fat percentage would you like to reach?',
 });
 
 /** User-facing name for weightTrainingHours (macro table + projections). */
@@ -39,7 +40,8 @@ export const INTAKE_FIELD_QUESTION_NUMBERS = Object.freeze({
   totalWeight: 13,
   fatPercent: 14,
   fatSource: 15,
+  desiredGoal: 16,
 });
 
-export const INTAKE_WAIVER_SIGNED_QUESTION_NUMBER = 16;
+export const INTAKE_WAIVER_SIGNED_QUESTION_NUMBER = 17;
 export const INTAKE_WAIVER_SIGNED_LABEL = 'Approved';

@@ -138,6 +138,7 @@ const BODY_FIELDS = [
   'totalWeight',
   'fatPercent',
   'fatSource',
+  'desiredGoal',
 ];
 
 const BODY_FIELD_META = {
@@ -158,6 +159,7 @@ const BODY_FIELD_META = {
     question: INTAKE_FIELD_QUESTIONS.fatSource,
     guide: 'Choose how your body fat percentage was measured or estimated.',
   },
+  desiredGoal: { question: INTAKE_FIELD_QUESTIONS.desiredGoal },
 };
 
 const OCCUPATION_FIELDS = [
@@ -489,6 +491,8 @@ function readForm() {
     fatSource: data.get('fatSource'),
     fatSourceOther: String(data.get('fatSourceOther') || '').trim(),
     fatPercent: data.get('fatPercent'),
+    desiredWeight: String(data.get('desiredWeight') || '').trim(),
+    desiredFatPercent: String(data.get('desiredFatPercent') || '').trim(),
     workPhysical: data.get('workPhysical'),
     workStress: data.get('workStress'),
     weightTrainingHours: data.get('weightTrainingHours'),
@@ -550,6 +554,8 @@ function writeFormValues(values) {
   setFormControlValue('fatSource', values.fatSource);
   setFormControlValue('fatSourceOther', values.fatSourceOther);
   setFormControlValue('fatPercent', values.fatPercent);
+  setFormControlValue('desiredWeight', values.desiredWeight);
+  setFormControlValue('desiredFatPercent', values.desiredFatPercent);
   setFormControlValue('workPhysical', values.workPhysical);
   setFormControlValue('workStress', values.workStress);
   setFormControlValue('weightTrainingHours', values.weightTrainingHours);
@@ -629,6 +635,8 @@ function toOnboardingForm(values) {
     birthDateText: formatBirthDateText(values.birthDate || ''),
     weightText: String(values.totalWeight || ''),
     fatPercentText: String(values.fatPercent || ''),
+    desiredWeight: values.desiredWeight,
+    desiredFatPercent: values.desiredFatPercent,
     fatSource: values.fatSource,
     fatSourceOther: values.fatSource === 'other' ? values.fatSourceOther : '',
     workPhysical: values.workPhysical,
@@ -1067,6 +1075,8 @@ function bodyFieldSummary(fieldId, values) {
       return values.fatSource ? formatFatSourceLabel(values.fatSource, values.fatSourceOther) : '';
     case 'fatPercent':
       return values.fatPercent ? `${values.fatPercent}%` : '';
+    case 'desiredGoal':
+      return [values.desiredWeight && `${values.desiredWeight} lb`, values.desiredFatPercent && `${values.desiredFatPercent}%`].filter(Boolean).join(' · ');
     default:
       return '';
   }
@@ -1097,6 +1107,13 @@ function validateBodyField(fieldId, values) {
       if (!values.fatSource) return 'Select how you know.';
       if (values.fatSource === 'other' && !values.fatSourceOther) return 'Enter how you know.';
       return '';
+    case 'desiredGoal': {
+      const weight = Number(values.desiredWeight);
+      const fat = Number(values.desiredFatPercent);
+      if (values.desiredWeight && (!Number.isFinite(weight) || weight <= 0)) return 'Enter a positive weight in pounds.';
+      if (values.desiredFatPercent && (!Number.isFinite(fat) || fat <= 0 || fat >= 100)) return 'Enter a body-fat percentage between 0 and 100.';
+      return '';
+    }
     case 'fatPercent': {
       const fat = Number(values.fatPercent);
       if (!values.fatPercent || !Number.isFinite(fat) || fat <= 0) {
@@ -1161,7 +1178,7 @@ function initBodyFieldCopy() {
 }
 
 function collapseBodyIfComplete() {
-  if (bodyFieldIndex < 0 || BODY_FIELDS[bodyFieldIndex] !== 'fatSource') return false;
+  if (bodyFieldIndex < 0 || bodyFieldIndex !== BODY_FIELDS.length - 1) return false;
   const values = readForm();
   if (!bodySectionComplete(values)) return false;
   bodyFieldIndex = -1;
@@ -1238,8 +1255,11 @@ function bindBodyAccordion() {
     if (event.target instanceof HTMLInputElement && event.target.name === 'fatSource' && event.target.value === 'other') {
       focusFieldIfAllowed(form.elements.fatSourceOther);
     }
+    if (BODY_FIELDS[bodyFieldIndex] === 'fatSource' && bodyFieldIsValid('fatSource', readForm())
+      && (event.target.name === 'fatSource' || event.target.name === 'fatSourceOther')) {
+      openBodyField(bodyFieldIndex + 1);
+    }
     renderBodyAccordionState();
-    collapseBodyIfComplete();
     updateStepNav();
   });
 
@@ -1249,6 +1269,10 @@ function bindBodyAccordion() {
     if (!(target instanceof HTMLInputElement)) return;
     if (target.type === 'radio') return;
     event.preventDefault();
+    if (target.name === 'desiredWeight') {
+      form.elements.desiredFatPercent.focus();
+      return;
+    }
     advanceBodyField();
   });
 

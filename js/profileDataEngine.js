@@ -152,6 +152,8 @@ export function activityHoursReviewLabel(value, max = 20) {
 export function profileFromForm(form) {
   const weight = Number(form.weightText);
   const fatPercent = Number(form.fatPercentText);
+  const desiredWeight = Number(form.desiredWeight);
+  const desiredFatPercent = Number(form.desiredFatPercent);
   const lbm = Math.round(weight * (1 - fatPercent / 100) * 10) / 10;
   const intensity = computeWorkIntensity(form.workPhysical, form.workStress);
   const fatSource = normalizeFatSourceValue(form.fatSource) || null;
@@ -172,6 +174,8 @@ export function profileFromForm(form) {
     heightInches: resolvedHeightInches(form.heightFeet, form.heightInchesPart) || Number(form.heightInches) || 0,
     totalWeight: weight,
     fatPercent,
+    desiredWeight: Number.isFinite(desiredWeight) && desiredWeight > 0 ? desiredWeight : null,
+    desiredFatPercent: Number.isFinite(desiredFatPercent) && desiredFatPercent > 0 && desiredFatPercent < 100 ? desiredFatPercent : null,
     leanBodyMass: lbm,
     workIntensity: intensity,
     workPhysical: form.workPhysical,
