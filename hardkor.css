@@ -97,6 +97,24 @@ nav {
   height: var(--nav-height);
 }
 
+.nav-logo,
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-emblem {
+  display: block;
+  flex: none;
+  width: 32px;
+  height: auto;
+}
+
+.footer-logo .brand-emblem {
+  width: 36px;
+}
+
 .nav-logo {
   font-family: var(--font-display);
   font-size: 1.3rem;
