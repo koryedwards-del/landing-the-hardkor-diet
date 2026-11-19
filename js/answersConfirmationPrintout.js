@@ -100,10 +100,8 @@ export function buildAnswersConfirmationRows(source) {
     confirmationRow('totalWeight', intake.totalWeight > 0 ? `${intake.totalWeight} lbs` : '—'),
     confirmationRow('fatPercent', bodyFatPercentValue(intake)),
     confirmationRow('fatSource', formatFatSourceLabel(intake.fatSource, intake.fatSourceOther)),
-    confirmationRow('desiredGoal', [
-      intake.desiredWeight > 0 ? `${intake.desiredWeight} lb` : '',
-      intake.desiredFatPercent > 0 ? `${intake.desiredFatPercent}% body fat` : '',
-    ].filter(Boolean).join(' · ') || '—'),
+    confirmationRow('desiredWeight', intake.desiredWeightUnknown ? 'Don’t know' : intake.desiredWeight > 0 ? `${intake.desiredWeight} lb` : '—'),
+    confirmationRow('desiredFatPercent', intake.desiredFatPercentUnknown ? 'Don’t know' : intake.desiredFatPercent > 0 ? `${intake.desiredFatPercent}%` : '—'),
     signatureDisplayRow('waiver', INTAKE_WAIVER_SIGNED_LABEL, intake.waiverSignature, intake.waiverSignedDate),
   ];
 

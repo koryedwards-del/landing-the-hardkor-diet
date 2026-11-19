@@ -571,24 +571,51 @@
                   </div>
                 </div>
 
-                <div class="intake-acc__item" data-body-field="desiredGoal">
+                <div class="intake-acc__item" data-body-field="desiredWeight">
                   <button type="button" class="intake-acc__trigger" aria-expanded="false">
                     <span class="intake-acc__num" aria-hidden="true"></span>
                     <span class="intake-acc__label" data-acc-label></span>
                     <span class="intake-acc__summary" hidden></span>
                   </button>
                   <div class="intake-acc__panel">
-                    <div class="intake-acc__qa-row intake-acc__qa-row--stacked">
+                    <div class="intake-acc__qa-row">
                       <span class="intake-acc__num" aria-hidden="true"></span>
                       <p class="intake-acc__qa-question" data-acc-question></p>
+                      <div class="intake-acc__qa-answer">
+                        <div class="intake-inline intake-inline--qa">
+                          <input class="intake-input intake-input--short" name="desiredWeight" inputmode="decimal" placeholder="Optional" aria-label="Desired body weight (lb)" />
+                          <span class="intake-unit intake-unit--qa">lb</span>
+                        </div>
+                      </div>
                     </div>
-                    <label class="intake-acc__field intake-inline">
-                      <span>Desired weight (lb)</span>
-                      <input class="intake-input intake-input--short" name="desiredWeight" inputmode="decimal" placeholder="Optional" />
+                    <label class="intake-acc__field">
+                      <input type="checkbox" name="desiredWeightUnknown" aria-label="Don’t know my desired body weight" />
+                      Don’t know
                     </label>
-                    <label class="intake-acc__field intake-inline">
-                      <span>Desired body fat (%)</span>
-                      <input class="intake-input intake-input--short" name="desiredFatPercent" inputmode="decimal" placeholder="Optional" />
+                    <p class="intake-acc__error" hidden></p>
+                  </div>
+                </div>
+
+                <div class="intake-acc__item" data-body-field="desiredFatPercent">
+                  <button type="button" class="intake-acc__trigger" aria-expanded="false">
+                    <span class="intake-acc__num" aria-hidden="true"></span>
+                    <span class="intake-acc__label" data-acc-label></span>
+                    <span class="intake-acc__summary" hidden></span>
+                  </button>
+                  <div class="intake-acc__panel">
+                    <div class="intake-acc__qa-row">
+                      <span class="intake-acc__num" aria-hidden="true"></span>
+                      <p class="intake-acc__qa-question" data-acc-question></p>
+                      <div class="intake-acc__qa-answer">
+                        <div class="intake-inline intake-inline--qa">
+                          <input class="intake-input intake-input--short" name="desiredFatPercent" inputmode="decimal" placeholder="Optional" aria-label="Desired body fat (%)" />
+                          <span class="intake-unit intake-unit--qa">%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <label class="intake-acc__field">
+                      <input type="checkbox" name="desiredFatPercentUnknown" aria-label="Don’t know my desired body fat" />
+                      Don’t know
                     </label>
                     <p class="intake-acc__error" hidden></p>
                   </div>
@@ -646,6 +673,6 @@
     </footer>
   </div>
 
-  <script type="module" src="js/questionnaire.js?v=187"></script>
+  <script type="module" src="js/questionnaire.js?v=188"></script>
 </body>
 </html>
