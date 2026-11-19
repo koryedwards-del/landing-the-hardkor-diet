@@ -1120,12 +1120,14 @@ function validateBodyField(fieldId, values) {
       if (values.fatSource === 'other' && !values.fatSourceOther) return 'Enter how you know.';
       return '';
     case 'desiredWeight': {
-      if (values.desiredWeightUnknown || !values.desiredWeight) return '';
+      if (values.desiredWeightUnknown) return '';
+      if (!values.desiredWeight) return 'Enter your desired body weight or select Don’t know.';
       const weight = Number(values.desiredWeight);
       return Number.isFinite(weight) && weight > 0 ? '' : 'Enter a positive weight in pounds.';
     }
     case 'desiredFatPercent': {
-      if (values.desiredFatPercentUnknown || !values.desiredFatPercent) return '';
+      if (values.desiredFatPercentUnknown) return '';
+      if (!values.desiredFatPercent) return 'Enter your desired body fat or select Don’t know.';
       const fat = Number(values.desiredFatPercent);
       return Number.isFinite(fat) && fat > 0 && fat < 100 ? '' : 'Enter a body-fat percentage between 0 and 100.';
     }
@@ -1925,6 +1927,12 @@ function bindEvents() {
 }
 
 async function buildProgram(triggerBtn) {
+  if (!canProceed(3)) {
+    showStep(3);
+    highlightStepValidationErrors(3);
+    return;
+  }
+
   if (!canProceed(4)) {
     showStep(4);
     highlightWaiverValidationErrors(readForm());
