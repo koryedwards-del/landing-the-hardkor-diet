@@ -5,7 +5,7 @@ alwaysApply: true
 
 # HARDKOR Diet FAQ PDF
 
-Standalone FAQ PDF — **not** part of the 7-page HARDKOR Diet. Linked from purchase email (exact copy from user only).
+Standalone FAQ PDF — **not** part of the 6-page HARDKOR Diet. Linked from purchase email (exact copy from user only).
 
 **Visual style:** modern B&B report frame; Food Plan page is the design reference. See `.cursor/rules/modern-pdf-style.mdc`.
 

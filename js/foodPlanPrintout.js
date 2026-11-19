@@ -1,4 +1,4 @@
-/** Food Plan printout helpers — projections and exercise-hour summaries for the 8-page PDF. */
+/** Food Plan printout helpers — projections and exercise-hour summaries. */
 
 import { computeDietEightWeekProjection } from './bodyCompositionData.js';
 

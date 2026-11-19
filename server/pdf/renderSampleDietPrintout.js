@@ -14,7 +14,6 @@ import {
   TABLE_1982,
 } from './draw1982Frame.js';
 import { drawAnswersConfirmationPage } from './drawAnswersConfirmationPage.js';
-import { drawModernFoodPlanPage } from './drawModernFoodPlanPage.js';
 import { drawModernMenuPlanPage } from './drawModernMenuPlanPage.js';
 import { drawModernLeanBodyAnalysisPage } from './drawModernLeanBodyAnalysisPage.js';
 import { drawModernServingsPage } from './drawModernServingsPage.js';
@@ -638,10 +637,6 @@ function drawMacroTable(doc, x, y, width, macroRows) {
   return y + totalH;
 }
 
-function drawFoodPlanPage(doc, payload) {
-  drawModernFoodPlanPage(doc, payload);
-}
-
 function drawServingsPage(doc, payload) {
   drawModernServingsPage(doc, payload);
 }
@@ -1009,7 +1004,7 @@ function drawSampleDayMenuPage(doc, payload) {
   }
 }
 
-export const SAMPLE_DIET_PRINTOUT_MIN_PAGES = 7;
+export const SAMPLE_DIET_PRINTOUT_MIN_PAGES = 6;
 
 export function validateSampleDietPayload(payload) {
   if (!payload || typeof payload !== 'object') {
@@ -1041,7 +1036,7 @@ export async function renderSampleDietPrintout(payload, { title, buildLabel, hea
       doc.info.Subject = `B&B Sample Diet ${buildLabel}`;
     }
 
-    // Questionnaire, daily servings, food lists, menu plan, lean body analysis, in 8 weeks.
+    // Questionnaire, daily servings, food lists, menu plan, lean body analysis.
     drawAnswersConfirmationPage(doc, payload);
     drawServingsPage(doc, payload);
 
@@ -1053,7 +1048,6 @@ export async function renderSampleDietPrintout(payload, { title, buildLabel, hea
     drawVegFruitFoodListPage(doc, payload, foodListFrame);
     drawSampleDayMenuPage(doc, payload);
     drawLeanBodyAnalysisPage(doc, payload);
-    drawFoodPlanPage(doc, payload);
 
     stamp1982Footers(doc, payload.header);
 

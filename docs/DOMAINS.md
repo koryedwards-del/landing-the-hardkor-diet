@@ -6,7 +6,7 @@ Three standalone pieces:
 
 1. **Landing page** — `index.html` + `hardkor.css` + assets (marketing only)
 2. **Burn Engine** — serving math (`js/burnEngine.js`, foods data)
-3. **HARDKOR Diet PDF** — purchased deliverable (`server/pdf/renderSampleDietPrintout.js`, **7 pages**)
+3. **HARDKOR Diet PDF** — purchased deliverable (`server/pdf/renderSampleDietPrintout.js`, **6 pages**)
 
 ## File naming
 
@@ -26,7 +26,7 @@ Three standalone pieces:
 | `js/intakeQuestionCopyData.js` | Shared questionnaire question text + field numbering |
 | `js/sampleDietPrintoutCopyData.js` | Locked PDF page copy (live path for printout text) |
 | `js/programReportCopyData.js` | Legacy copy archive (not wired to renderer) |
-| `js/answersConfirmationPrintout.js` | PDF page 7 — submitted answers |
+| `js/answersConfirmationPrintout.js` | PDF page 1 — submitted answers |
 | `js/leanBodyAnalysisPrintout.js` | LBA helpers + fat-source labels |
 | `js/programClientDataHelpers.js` | Client name + date helpers |
 | `js/sampleDietPreviewFixtures.js` | Sample Female preview fixtures |

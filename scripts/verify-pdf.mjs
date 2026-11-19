@@ -19,9 +19,12 @@ function pageCount(pdf) {
   return (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
 }
 
-function assertPdf(label, pdf, { minPages = 1 } = {}) {
+function assertPdf(label, pdf, { minPages = 1, exactPages } = {}) {
   assertPdfBuffer(pdf);
   const pages = pageCount(pdf);
+  if (exactPages != null && pages !== exactPages) {
+    throw new Error(`${label}: expected ${exactPages} pages, got ${pages}`);
+  }
   if (pages < minPages) {
     throw new Error(`${label}: expected >= ${minPages} pages, got ${pages}`);
   }
@@ -45,7 +48,7 @@ console.log(`ok  sanitizePdfFilename — ${filename}`);
 const samplePayload = buildSampleDietPrintoutPayload(buildGoldenSamplePackage());
 validateSampleDietPayload(samplePayload);
 assertPdf('The HARDKOR Diet (golden sample)', await renderSampleDietPrintout(samplePayload), {
-  minPages: SAMPLE_DIET_PRINTOUT_MIN_PAGES,
+  exactPages: SAMPLE_DIET_PRINTOUT_MIN_PAGES,
 });
 if (samplePayload.view !== 'samplediet') {
   throw new Error(`sample view: got ${samplePayload.view}`);
@@ -87,7 +90,7 @@ if (athletePayload.clientName !== 'SAMPLE ATHLETE' || athlete.intake.sex !== 'ma
   throw new Error('Athlete sample does not match the approved profile.');
 }
 assertPdf('The HARDKOR Diet (athlete sample)', await renderSampleDietPrintout(athletePayload), {
-  minPages: SAMPLE_DIET_PRINTOUT_MIN_PAGES,
+  exactPages: SAMPLE_DIET_PRINTOUT_MIN_PAGES,
 });
 
 assertPdf('menu plan worksheet (blank)', await renderMenuPlanWorksheet(), { minPages: 1 });

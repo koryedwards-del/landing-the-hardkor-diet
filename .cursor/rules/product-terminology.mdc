@@ -30,16 +30,16 @@ CSS class names (`intake-form__*`, `intake-acc__*`) and `pkg.intake` stay as-is 
 
 **Rule:** Say **questionnaire** to users and in agent/docs copy; say **`intake`** only in code when referring to the saved answers object on `pkg.intake`.
 
-## PDF page 7 — not a separate file
+## PDF page 1 — not a separate file
 
-The HARDKOR Diet PDF is **one 7-page document**. Page 7 lists the customer's submitted answers (after LBA, Food Plan, Servings, food lists, Menu Plan).
+The HARDKOR Diet PDF is **one 6-page document**. Page 1 lists the customer's submitted answers, followed by Daily Servings, two Food List pages, Menu Plan, and Lean Body Analysis.
 
 | Code | Role |
 |------|------|
-| `js/answersConfirmationPrintout.js` | Builds answer rows for PDF page 7 |
+| `js/answersConfirmationPrintout.js` | Builds answer rows for PDF page 1 |
 | `js/profileDataEngine.js` | Profile math from answers (engine + PDF) |
 
-There is **no** `questionnaire.pdf`. Do not rename page 7's PDF title ("Questionnaire confirmation") — that is user-authored copy on the printout.
+There is **no** `questionnaire.pdf`. Do not rename page 1's PDF title ("Questionnaire confirmation") — that is user-authored copy on the printout.
 
 ## One-sentence rule
 
@@ -50,7 +50,7 @@ There is **no** `questionnaire.pdf`. Do not rename page 7's PDF title ("Question
 | Term | Layer | Question it answers | Use for |
 |------|--------|---------------------|---------|
 | **Diet** | Product | What do they buy? | *The Burn & Build Diet*, *Get the Diet*, heritage (*Since 1982*), pricing ($279), checkout (*Download your Burn & Build Diet*), brand positioning |
-| **Food plan** | Eating rules | What do they follow daily? | PDF page 3, servings prescription, meal-building steps, handbook/FAQ about portions and adherence |
+| **Food plan** | Eating rules | What do they follow daily? | Daily Servings page, servings prescription, meal-building steps, handbook/FAQ about portions and adherence |
 | **Program** | Generated package | What did the engine produce? | Questionnaire → Burn Engine → **Burn & Build Diet** PDF; saved account artifact; *your program will be created* before Stripe |
 
 ## Avoid
@@ -69,7 +69,7 @@ There is **no** `questionnaire.pdf`. Do not rename page 7's PDF title ("Question
 - Questionnaire page title: **Program Questionnaire** — no subtitle
 - Pricing product name: **The Burn & Build Diet** — $279 one-time purchase
 - Before checkout: *When you have answered these questions… your **program** will be created*
-- Sample / Welcome section title: **Food Plan** (PDF page 3 — eating rules, not the product name)
+- Sample / Welcome section title: **Food Plan** (eating rules)
 - Program report PDF: **Burn & Build Diet** (full multi-page deliverable)
 - FAQ (all three in one sentence): *Bring your **food plan** and **program report** to your doctor before starting **the diet**.*
 
@@ -88,7 +88,7 @@ There is **no** `questionnaire.pdf`. Do not rename page 7's PDF title ("Question
 
 ## Gray areas (usually OK)
 
-- **Program report** — document name for the full PDF; not the product name, not page 3 alone
+- **Program report** — document name for the full PDF; not the product name
 - **`intake` in code** — saved answers object (`pkg.intake`); not a user-facing synonym for questionnaire
 - Colloquial **plan** when context is clearly servings or adherence (*your plan uses servings*) — not the product name
 - Waiver / everyday English (*changes to my diet*) — eating habits, not product naming
