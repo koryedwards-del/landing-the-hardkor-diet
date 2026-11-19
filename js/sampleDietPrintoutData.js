@@ -192,6 +192,7 @@ export function buildSampleDietPrintoutPayload(pkg, options = {}) {
       tagline: SAMPLE_DIET_SERVINGS_TAGLINE,
       note: SAMPLE_DIET_SERVINGS_NOTE,
       gridRows: servingsGridRows(pkg),
+      fatDaily: pkg?.plan?.servings?.fatMaintain,
       planServings: pkg?.plan?.servings ? { ...pkg.plan.servings } : null,
       gettingStarted: {
         heading: SAMPLE_DIET_GETTING_STARTED_HEADING,

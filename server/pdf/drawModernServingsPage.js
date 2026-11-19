@@ -31,6 +31,8 @@ const LAYOUT = Object.freeze({
   taglineGap: 10,
   tableTopGap: 12,
   tableRowPad: 7,
+  referenceRowHeight: 13,
+  referenceSize: 7,
   cellPad: 6,
   labelSize: 9.5,
   dailySize: 12,
@@ -81,7 +83,7 @@ function spanWidth(colWidths, bounds) {
   return colWidths.slice(bounds.fromIndex, bounds.toIndex + 1).reduce((sum, w) => sum + w, 0);
 }
 
-function buildServingsRows(gridRows) {
+function buildServingsRows(gridRows, fatDaily) {
   const header = {
     label: '',
     daily: 'Daily',
@@ -108,10 +110,16 @@ function buildServingsRows(gridRows) {
       }
       : row
   ));
+  if (Number.isFinite(fatDaily) && fatDaily >= 0) {
+    bodyRows.push({ daily: String(fatDaily), _isReference: true });
+  }
   return [header, ...bodyRows];
 }
 
 function cellStyle(row, col, { isHeader = false } = {}) {
+  if (row._isReference && col.hero) {
+    return { font: FONTS.regular, fontSize: LAYOUT.referenceSize, color: '#888888', fill: COLORS.goldPale };
+  }
   if (isHeader) {
     if (col.hero) {
       return { font: FONTS.bold, fontSize: LAYOUT.headerDailySize, color: COLORS.body, fill: COLORS.goldPale };
@@ -134,6 +142,7 @@ function cellStyle(row, col, { isHeader = false } = {}) {
 function measureServingsTable(doc, rows, tableWidth) {
   const colWidths = columnWidths(TABLE_COLUMNS, tableWidth);
   return rows.map((row) => {
+    if (row._isReference) return LAYOUT.referenceRowHeight;
     const isHeader = Boolean(row._isHeader);
     let maxH = LAYOUT.tableRowPad * 2;
     TABLE_COLUMNS.forEach((col, index) => {
@@ -196,6 +205,10 @@ function drawServingsTable(doc, { x, y, width, rows }) {
         doc.restore();
       }
 
+      if (!text) {
+        cx += cellW;
+        return;
+      }
       doc.font(style.font).fontSize(style.fontSize).fillColor(style.color);
       const textW = cellW - LAYOUT.cellPad * 2;
       let textX = cx + LAYOUT.cellPad;
@@ -203,9 +216,9 @@ function drawServingsTable(doc, { x, y, width, rows }) {
         const renderedW = doc.widthOfString(text);
         if (renderedW < textW) textX = cx + (cellW - renderedW) / 2;
       }
-      doc.text(text, textX, cy + LAYOUT.tableRowPad, {
+      doc.text(text, row._isReference ? cx + LAYOUT.cellPad : textX, cy + (row._isReference ? 2 : LAYOUT.tableRowPad), {
         width: textW,
-        align: align === 'center' ? 'center' : 'left',
+        align: row._isReference ? 'right' : align,
         lineGap: 0,
       });
       cx += cellW;
@@ -331,7 +344,7 @@ export function drawModernServingsPage(doc, payload) {
     x: page.x,
     y,
     width: page.width,
-    rows: buildServingsRows(servings.gridRows),
+    rows: buildServingsRows(servings.gridRows, servings.fatDaily),
   });
 
   if (servings.gettingStarted?.rules?.length) {
