@@ -494,9 +494,7 @@ function readForm() {
     fatSourceOther: String(data.get('fatSourceOther') || '').trim(),
     fatPercent: data.get('fatPercent'),
     desiredWeight: String(data.get('desiredWeight') || '').trim(),
-    desiredWeightUnknown: data.has('desiredWeightUnknown'),
     desiredFatPercent: String(data.get('desiredFatPercent') || '').trim(),
-    desiredFatPercentUnknown: data.has('desiredFatPercentUnknown'),
     workPhysical: data.get('workPhysical'),
     workStress: data.get('workStress'),
     weightTrainingHours: data.get('weightTrainingHours'),
@@ -559,9 +557,7 @@ function writeFormValues(values) {
   setFormControlValue('fatSourceOther', values.fatSourceOther);
   setFormControlValue('fatPercent', values.fatPercent);
   setFormControlValue('desiredWeight', values.desiredWeight);
-  setFormControlValue('desiredWeightUnknown', values.desiredWeightUnknown);
   setFormControlValue('desiredFatPercent', values.desiredFatPercent);
-  setFormControlValue('desiredFatPercentUnknown', values.desiredFatPercentUnknown);
   setFormControlValue('workPhysical', values.workPhysical);
   setFormControlValue('workStress', values.workStress);
   setFormControlValue('weightTrainingHours', values.weightTrainingHours);
@@ -642,9 +638,7 @@ function toOnboardingForm(values) {
     weightText: String(values.totalWeight || ''),
     fatPercentText: String(values.fatPercent || ''),
     desiredWeight: values.desiredWeight,
-    desiredWeightUnknown: values.desiredWeightUnknown,
     desiredFatPercent: values.desiredFatPercent,
-    desiredFatPercentUnknown: values.desiredFatPercentUnknown,
     fatSource: values.fatSource,
     fatSourceOther: values.fatSource === 'other' ? values.fatSourceOther : '',
     workPhysical: values.workPhysical,
@@ -1084,10 +1078,8 @@ function bodyFieldSummary(fieldId, values) {
     case 'fatPercent':
       return values.fatPercent ? `${values.fatPercent}%` : '';
     case 'desiredWeight':
-      if (values.desiredWeightUnknown) return 'Don’t know';
       return values.desiredWeight ? `${values.desiredWeight} lb` : '';
     case 'desiredFatPercent':
-      if (values.desiredFatPercentUnknown) return 'Don’t know';
       return values.desiredFatPercent ? `${values.desiredFatPercent}%` : '';
     default:
       return '';
@@ -1120,14 +1112,12 @@ function validateBodyField(fieldId, values) {
       if (values.fatSource === 'other' && !values.fatSourceOther) return 'Enter how you know.';
       return '';
     case 'desiredWeight': {
-      if (values.desiredWeightUnknown) return '';
-      if (!values.desiredWeight) return 'Enter your desired body weight or select Don’t know.';
+      if (!values.desiredWeight) return 'Enter your desired body weight in pounds.';
       const weight = Number(values.desiredWeight);
       return Number.isFinite(weight) && weight > 0 ? '' : 'Enter a positive weight in pounds.';
     }
     case 'desiredFatPercent': {
-      if (values.desiredFatPercentUnknown) return '';
-      if (!values.desiredFatPercent) return 'Enter your desired body fat or select Don’t know.';
+      if (!values.desiredFatPercent) return 'Enter your desired body fat percentage.';
       const fat = Number(values.desiredFatPercent);
       return Number.isFinite(fat) && fat > 0 && fat < 100 ? '' : 'Enter a body-fat percentage between 0 and 100.';
     }
@@ -1157,11 +1147,6 @@ function setBodyFieldError(item, message) {
 
 function renderBodyAccordionState() {
   if (!bodyAccordion) return;
-  for (const field of ['desiredWeight', 'desiredFatPercent']) {
-    const input = form.elements[field];
-    const unknown = form.elements[`${field}Unknown`];
-    if (input && unknown) input.disabled = unknown.checked;
-  }
   const values = readForm();
 
   BODY_FIELDS.forEach((fieldId, index) => {
