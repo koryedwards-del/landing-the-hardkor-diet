@@ -12,7 +12,11 @@ import {
   formatAnswersConfirmationLabel,
 } from '../../js/answersConfirmationPrintout.js';
 import { FAT_SOURCE_OPTIONS, formatFatSourceLabel } from '../../js/leanBodyAnalysisPrintout.js';
-import { INTAKE_FIELD_QUESTIONS } from '../../js/intakeQuestionCopyData.js';
+import {
+  INTAKE_FIELD_QUESTIONS,
+  INTAKE_FIELD_QUESTION_NUMBERS,
+  INTAKE_WAIVER_SIGNED_QUESTION_NUMBER,
+} from '../../js/intakeQuestionCopyData.js';
 import { bindBirthDateInput, setBirthDateInputValue } from './birthDateInput.js';
 import { validateBirthDate } from '../../js/athleteAgeData.js';
 import { persistProgramBridge } from '../../js/programBridgeHandoff.js';
@@ -177,33 +181,31 @@ const INTAKE_QUESTION_SECTIONS = [
   { accordionId: 'body-accordion', attr: 'data-body-field', fields: BODY_FIELDS },
 ];
 
-const WAIVER_QUESTION_NUM_SELECTORS = [
-  '#athlete-waiver-block .intake-waiver__cell--signed .intake-acc__num',
-  '#athlete-waiver-block .intake-waiver__cell--date .intake-acc__num',
-];
-
 function syncIntakeQuestionNumbers() {
-  let n = 1;
   INTAKE_QUESTION_SECTIONS.forEach(({ accordionId, attr, fields }) => {
     const root = document.getElementById(accordionId);
     if (!root) return;
     fields.forEach((fieldId) => {
       const item = root.querySelector(`[${attr}="${fieldId}"]`);
       if (!item) return;
-      item.dataset.questionNumber = String(n);
+      const number = INTAKE_FIELD_QUESTION_NUMBERS[fieldId];
+      if (number) item.dataset.questionNumber = String(number);
       item.querySelectorAll('.intake-acc__num').forEach((numEl) => {
-        numEl.textContent = String(n);
+        numEl.textContent = String(number ?? '');
+        if (!number) numEl.style.visibility = 'hidden';
       });
-      n += 1;
     });
   });
-  WAIVER_QUESTION_NUM_SELECTORS.forEach((selector) => {
-    const numEl = document.querySelector(selector);
-    if (!numEl) return;
-    numEl.textContent = String(n);
-    numEl.closest('.intake-waiver__cell')?.setAttribute('data-question-number', String(n));
-    n += 1;
-  });
+
+  const signatureNumber = document.querySelector('#athlete-waiver-block .intake-waiver__cell--signed .intake-acc__num');
+  if (signatureNumber) {
+    const number = String(INTAKE_WAIVER_SIGNED_QUESTION_NUMBER);
+    signatureNumber.textContent = number;
+    signatureNumber.closest('.intake-waiver__cell')?.setAttribute('data-question-number', number);
+  }
+
+  const dateNumber = document.querySelector('#athlete-waiver-block .intake-waiver__cell--date .intake-acc__num');
+  if (dateNumber) dateNumber.style.visibility = 'hidden';
 }
 
 function accDetailWithoutHintRepeat(hintText, detailText) {

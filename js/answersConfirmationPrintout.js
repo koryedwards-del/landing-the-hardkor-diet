@@ -6,6 +6,7 @@ import {
   INTAKE_FIELD_QUESTIONS,
   INTAKE_FIELD_QUESTION_NUMBERS,
   INTAKE_WAIVER_SIGNED_LABEL,
+  INTAKE_WAIVER_SIGNED_QUESTION_NUMBER,
 } from './intakeQuestionCopyData.js';
 
 export const ANSWERS_CONFIRMATION_INTRO =
@@ -51,6 +52,7 @@ function signatureDisplayRow(fieldId, label, signatureName, signatureDate) {
   const date = formatConfirmationDate(signatureDate);
   return {
     fieldId,
+    questionNumber: INTAKE_WAIVER_SIGNED_QUESTION_NUMBER,
     label,
     value: waiverSignedLabel(signatureName, signatureDate),
     signatureDisplay: name
@@ -105,8 +107,5 @@ export function buildAnswersConfirmationRows(source) {
     signatureDisplayRow('waiver', INTAKE_WAIVER_SIGNED_LABEL, intake.waiverSignature, intake.waiverSignedDate),
   ];
 
-  return rows.map((row, index) => ({
-    ...row,
-    questionNumber: index + 1,
-  }));
+  return rows;
 }

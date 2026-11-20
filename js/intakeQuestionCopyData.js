@@ -24,26 +24,25 @@ export const INTAKE_FIELD_QUESTIONS = Object.freeze({
 export const INTAKE_WEIGHTS_RACQUET_SPORTS = 'weights/racquet sports';
 export const INTAKE_WEIGHTS_RACQUET_SPORTS_TITLE = 'Weights/Racquet Sports';
 
-/** Continuous question numbers across intake steps (email confirm = 4, omitted from PDF confirmation). */
+/** Question numbers shared by the intake and PDF confirmation. */
 export const INTAKE_FIELD_QUESTION_NUMBERS = Object.freeze({
   preferredName: 1,
   sex: 2,
   email: 3,
-  emailConfirm: 4,
-  referrerName: 5,
-  workPhysical: 6,
-  workStress: 7,
-  birthDate: 8,
-  weightTrainingHours: 9,
-  cardioHours: 10,
-  fatBurningHours: 11,
-  height: 12,
-  totalWeight: 13,
-  fatPercent: 14,
-  fatSource: 15,
-  desiredWeight: 16,
-  desiredFatPercent: 17,
+  referrerName: 4,
+  workPhysical: 5,
+  workStress: 6,
+  birthDate: 7,
+  weightTrainingHours: 8,
+  cardioHours: 9,
+  fatBurningHours: 10,
+  height: 11,
+  totalWeight: 12,
+  fatPercent: 13,
+  fatSource: 14,
+  desiredWeight: 15,
+  desiredFatPercent: 16,
 });
 
-export const INTAKE_WAIVER_SIGNED_QUESTION_NUMBER = 18;
+export const INTAKE_WAIVER_SIGNED_QUESTION_NUMBER = 17;
 export const INTAKE_WAIVER_SIGNED_LABEL = 'Approved';
