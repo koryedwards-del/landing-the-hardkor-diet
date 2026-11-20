@@ -45,7 +45,7 @@ function normalizeRetryKey(email) {
   return String(email || '').trim().toLowerCase();
 }
 
-/** Generate, store, and return the Burn & Build Diet PDF buffer. Always renders fresh. */
+/** Generate, store, and return the HARDKORDiet PDF buffer. Always renders fresh. */
 export async function ensureDietPdf(email, programId) {
   const id = String(programId || '').trim();
   if (!id) throw new Error('Missing program id.');

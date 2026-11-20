@@ -1,6 +1,6 @@
 import { CONTACT_EMAIL } from './contactEmailData.js';
 
-/** B&B sample diet printout — locked 1982 Warner copy (user-authored; do not reauthor). */
+/** HARDKORDiet sample printout — locked 1982 Warner copy (user-authored; do not reauthor). */
 
 /** Footer contact — pinned footer on every sample diet page. */
 export const SAMPLE_DIET_HEADER = Object.freeze({

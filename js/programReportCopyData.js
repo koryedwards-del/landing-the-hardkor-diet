@@ -1,31 +1,31 @@
-/** Burn & Build Diet PDF copy — user-authored; pending wiring into sampleDietPrintoutCopyData.js */
+/** HARDKORDiet PDF copy — user-authored; pending wiring into sampleDietPrintoutCopyData.js */
 
 export const PROGRAM_REPORT_WELCOME_COPY = {
   intro: [
     'Congratulations! You have in your hands the most advanced diet available anywhere, at any price. It is the most individualized program available for losing fat and building muscle. This diet will not work effectively for anyone else because it has been created just for you, using your lean body mass (LBM), your job, your lifestyle, and your weekly plan for weight training (WT), high heart rate aerobic activity (HHT), and low heart rate aerobic activity (LHR).',
-    'How we did it. We used the information you provided on the program questionnaire — your body composition, job, lifestyle, and exercise hours — and Burn & Build generated this report.',
+    'How we did it. We used the information you provided on the program questionnaire — your body composition, job, lifestyle, and exercise hours — and HARDKORDiet generated this report.',
   ],
   leanBodyAnalysis:
     'Page two is the results of your body composition test or estimate you provided. Although very few people want to know how fat they are, all of them want to know how to lose fat. Our Lean Body Analysis page includes your profile, a snapshot of where you are today, and body fat ranges with the scale weights each range represents at your lean body mass.',
   foodPlan:
-    'Page three is your custom-designed food plan. It explains how Burn & Build converts your protein and carbohydrates into servings and does the serving math for you. The servings on page four follow directly from this page.',
+    'Page three is your custom-designed food plan. It explains how HARDKORDiet converts your protein and carbohydrates into servings and does the serving math for you. The servings on page four follow directly from this page.',
   servings:
-    'Page four is the servings page. Burn & Build turns everything from page three into daily servings divided across breakfast, lunch, dinner, and fruit snacks so you have maximum strength and energy while losing fat fast.',
+    'Page four is the servings page. HARDKORDiet turns everything from page three into daily servings divided across breakfast, lunch, dinner, and fruit snacks so you have maximum strength and energy while losing fat fast.',
   foodList:
     'Pages five and six are your food list. Page five lists protein & dairy along with grains & starches. Page six lists the veggies and fruits. These foods have a track record for getting results since 1982. One serving is exactly the amount of the protein and carbohydrates your body needs to maximize your metabolism and build muscle at the same time. The gram weights on your list are scaled to your daily servings from page four.',
   whatToPrint:
     'You do not need to print all twelve pages. For daily use, pages 4-6 in the kitchen. The rest of your report can stay on your phone.',
   faq:
-    'Starting on page seven, frequently asked questions answer the practical details clients ask most often — hunger, exercise, bread, water, artificial sweeteners, and more. Burn & Build has refined these answers since 1982. The final page of your report confirms the answers you gave on the program questionnaire.',
+    'Starting on page seven, frequently asked questions answer the practical details clients ask most often — hunger, exercise, bread, water, artificial sweeteners, and more. HARDKORDiet has refined these answers since 1982. The final page of your report confirms the answers you gave on the program questionnaire.',
 };
 
 export const PROGRAM_REPORT_FOOD_PLAN_LEAD = [
-  'Since 1982 Burn & Build has turned what your body needs into daily servings from proven fat-burning, muscle-building foods — not numbers you chase on a calculator while still wondering what to put on your plate. Burn & Build converts your protein and carbohydrates into servings and then does the serving math for you also.',
+  'Since 1982 HARDKORDiet has turned what your body needs into daily servings from proven fat-burning, muscle-building foods — not numbers you chase on a calculator while still wondering what to put on your plate. HARDKORDiet converts your protein and carbohydrates into servings and then does the serving math for you also.',
   'The table below shows what too much or too little does to each one.',
 ];
 
 export const PROGRAM_REPORT_FOOD_PLAN_HOWTO = [
-  'Burn & Build cuts the fine line between too much and too little — that\'s the secret to losing fat and building muscle on the same diet. Your daily servings come from protein, dairy, grains, starches, veggies, and fruits: whole clean foods, each sized to fit your needs. This program is customized to you and won\'t work for anyone else.',
+  'HARDKORDiet cuts the fine line between too much and too little — that\'s the secret to losing fat and building muscle on the same diet. Your daily servings come from protein, dairy, grains, starches, veggies, and fruits: whole clean foods, each sized to fit your needs. This program is customized to you and won\'t work for anyone else.',
 ];
 
 export const PROGRAM_REPORT_FOOD_PLAN_MEASURE_TIP =

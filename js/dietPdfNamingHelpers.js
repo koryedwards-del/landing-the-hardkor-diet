@@ -23,14 +23,18 @@ function formatCreationDate(isoOrDate) {
   return `${month}-${day}-${year}`;
 }
 
-export function dietPdfDocumentLabel({ preferredName, createdAt, pkg } = {}) {
+function formatDietPdfLabel(prefix, { preferredName, createdAt, pkg } = {}) {
   const name = sanitizeNamePart(preferredName || (pkg ? programClientName(pkg) : ''));
   const date = formatCreationDate(createdAt || (pkg ? programPreparedDate(pkg) : null));
-  return `${DIET_PDF_PREFIX}-${name}-${date}`;
+  return `${prefix}-${name}-${date}`;
+}
+
+export function dietPdfDocumentLabel(options = {}) {
+  return formatDietPdfLabel('HARDKORDiet', options);
 }
 
 export function dietPdfFilename(options = {}) {
-  return `${dietPdfDocumentLabel(options)}.pdf`;
+  return `${formatDietPdfLabel(DIET_PDF_PREFIX, options)}.pdf`;
 }
 
 /** Email attachments — ASCII-safe filename (no & in MIME headers). */
