@@ -34,7 +34,7 @@ function isValidEmail(email) {
 
 const STEPS = [
   { id: 'start', label: 'Contact Information' },
-  { id: 'work', label: 'Occupation' },
+  { id: 'work', label: 'Daily Routine' },
   { id: 'exercise', label: 'Exercise' },
   { id: 'body', label: 'Body composition' },
   { id: 'waiver', label: 'Agreement' },
@@ -43,7 +43,7 @@ const STEPS = [
 
 const MOBILE_STEP_LABELS = [
   'About You',
-  'Occupation',
+  'Daily Routine',
   'Exercise',
   'Body Composition',
   'Agreement',
@@ -52,7 +52,7 @@ const MOBILE_STEP_LABELS = [
 
 const STEP_HEADINGS = [
   'Contact Information',
-  'Occupation',
+  'Daily Routine',
   'Exercise',
   'Body composition',
   'Waiver (please read and sign)',
@@ -286,11 +286,11 @@ function bindAccordionMoreInfo(root) {
 const OCCUPATION_FIELD_META = {
   workPhysical: {
     question: INTAKE_FIELD_QUESTIONS.workPhysical,
-    guide: 'Outside of practice and training. Choose what describes most school days, not your most active day.',
+    guide: 'Think about how much you move on a typical day outside practice and training.',
   },
   workStress: {
     question: INTAKE_FIELD_QUESTIONS.workStress,
-    guide: 'Homework, friends, chores, and other commitments — your usual routine outside school, practice, and training.',
+    guide: 'Think about your usual commitments and how much time you have to rest and recover.',
   },
 };
 
@@ -298,33 +298,33 @@ const OCCUPATION_CHOICE_COPY = {
   workPhysical: {
     sitting: {
       label: 'Sitting',
-      sub: 'Mostly seated in class or studying, with walks between classes.',
+      sub: 'Mostly seated, with short walks throughout the day.',
     },
     feet: {
       label: 'Moving',
-      sub: 'On your feet and walking for much of the school day, beyond changing classes.',
+      sub: 'On your feet and walking for much of the day.',
     },
     carrying: {
       label: 'Lifting',
-      sub: 'Regular lifting or carrying during hands-on classes or school activities, outside training.',
+      sub: 'Regular lifting or carrying as part of your daily routine.',
     },
     heavy: {
       label: 'Heavy labor',
-      sub: 'Demanding physical work for much of the day, such as an intensive vocational program. Do not count lifting workouts.',
+      sub: 'Demanding physical work for much of the day. Leave out lifting workouts.',
     },
   },
   workStress: {
     comfortable: {
       label: 'Comfortable',
-      sub: 'Manageable homework and commitments, with time to relax and recover.',
+      sub: 'Manageable commitments, with time to relax and recover.',
     },
     busy: {
       label: 'Busy',
-      sub: 'Homework, chores, friends, or a part-time job — a full schedule you generally keep up with.',
+      sub: 'A full schedule you generally keep up with.',
     },
     stressful: {
       label: 'Stressful',
-      sub: 'Schoolwork and other responsibilities feel demanding most weeks, with little downtime.',
+      sub: 'Your responsibilities feel demanding most weeks, with little downtime.',
     },
   },
 };
