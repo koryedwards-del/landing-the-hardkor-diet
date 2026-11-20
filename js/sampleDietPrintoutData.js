@@ -1,4 +1,4 @@
-/** Burn & Build Diet PDF payload — questionnaire data + burn-engine calcs (sample + purchased). */
+/** HARDKORDiet PDF payload — questionnaire data + burn-engine calcs (sample + purchased). */
 
 import { computeTodayBodyComposition } from './bodyCompositionData.js';
 import { analyzeLeanBodyMass } from './bodyCompositionData.js';
@@ -136,7 +136,7 @@ export function buildSampleDietPrintoutPayload(pkg, options = {}) {
 
   return {
     view: 'samplediet',
-    title: `B&B Sample Diet - ${programClientName(pkg)}`,
+    title: `HARDKORDiet Sample - ${programClientName(pkg)}`,
     clientName: programClientNameUpper(pkg),
     preparedAt: programPreparedDate(pkg),
     preparedDate: programPreparedDate(pkg),

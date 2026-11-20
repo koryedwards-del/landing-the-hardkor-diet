@@ -4,7 +4,7 @@ import {
 } from './draw.js';
 import { stampAllPageNumbers } from './drawFrame.js';
 
-/** Burn & Build Diet PDF creator — program report lifecycle. */
+/** HARDKORDiet PDF creator — program report lifecycle. */
 export class PrintPdfCreator {
   #doc;
   #bufferPromise;

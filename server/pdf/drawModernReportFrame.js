@@ -1,5 +1,5 @@
 /**
- * Modern Burn & Build Diet report frame — header + footer shared across all pages.
+ * Modern HARDKORDiet report frame — header + footer shared across all pages.
  */
 import path from 'path';
 import { fileURLToPath } from 'url';

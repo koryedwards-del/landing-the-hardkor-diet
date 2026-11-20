@@ -12,7 +12,7 @@ const deliverable = path.join(root, 'docs/samples', HARDKOR_SAMPLE_DIET_REPO_FIL
 
 const payload = buildSampleDietPreviewPayload();
 const pdf = await renderSampleDietPrintout(payload, {
-  title: 'B&B Sample Diet',
+  title: 'HARDKORDiet Sample',
 });
 fs.mkdirSync(path.dirname(deliverable), { recursive: true });
 fs.writeFileSync(deliverable, pdf);

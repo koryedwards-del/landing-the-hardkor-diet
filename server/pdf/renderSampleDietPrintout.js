@@ -1,5 +1,5 @@
 /**
- * Burn & Build Diet PDF — program report (purchased + landing sample).
+ * HARDKORDiet PDF — program report (purchased + landing sample).
  */
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -1025,12 +1025,12 @@ export async function renderSampleDietPrintout(payload, { title, buildLabel, hea
 
   try {
     const creator = createPrintPdf({
-      title: title || payload.title || 'B&B Sample Diet',
+      title: title || payload.title || 'HARDKORDiet Sample',
       author: 'The HARDKOR Diet',
     });
     const doc = creator.doc;
     if (buildLabel) {
-      doc.info.Subject = `B&B Sample Diet ${buildLabel}`;
+      doc.info.Subject = `HARDKORDiet Sample ${buildLabel}`;
     }
 
     // Questionnaire, daily servings, food lists, menu plan, and What’s Possible.

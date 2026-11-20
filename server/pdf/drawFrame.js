@@ -255,7 +255,7 @@ export function stampAllPageNumbers(doc) {
   }
 }
 
-/** Burn & Build Diet program report — single footer draw, pinned to bottom (no gap hacks). */
+/** HARDKORDiet program report — single footer draw, pinned to bottom (no gap hacks). */
 export const PINNED_FOOTER = Object.freeze({
   bottomPad: 4,
   contactGap: 8,
