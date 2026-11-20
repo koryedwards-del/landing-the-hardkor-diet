@@ -142,7 +142,14 @@
 
     .who { padding: 28px 40px 28px; background: var(--black); }
     .who-inner { max-width: 720px; margin: 0 auto; }
-    .guide-video-heading { margin: 0 0 4px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .18em; text-transform: uppercase; color: #e8bd43; }
+    .guide-video-heading { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 0 4px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .18em; text-transform: uppercase; color: #e8bd43; }
+    .guide-video-heading::before,
+    .guide-video-heading::after {
+      content: '';
+      width: clamp(20px, 7vw, 48px);
+      height: 2px;
+      background: var(--landing-divider);
+    }
     .guide-video-name { margin: 0 0 18px; text-align: center; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(24px, 3vw, 32px); font-weight: 800; line-height: 1.2; }
     .guide-video { display: block; width: 100%; height: auto; border-radius: 16px; }
 
