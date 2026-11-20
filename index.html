@@ -114,43 +114,14 @@
     .testi-author { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); }
     .testi-photo { display: block; width: 88px; height: 88px; object-fit: cover; object-position: center 12%; border-radius: 50%; margin: 0 0 20px; border: 2px solid var(--yellow); position: relative; z-index: 1; }
 
-    .pricing { padding: 0 40px; background: var(--black); text-align: center; }
+    .pricing { padding: 0 40px 48px; background: var(--black); text-align: center; }
     .pricing-inner { max-width: 560px; margin: 0 auto; }
-    .pricing-connect { margin: 16px auto 0; max-width: 680px; color: #fff; font-family: Barlow, Arial, sans-serif; font-size: clamp(18px, 1.5vw, 22px); font-weight: 400; line-height: 1.6; text-align: center; }
-    .pricing .section-title { font-size: calc(var(--text-h2) * 0.72); }
-    .pricing .section-head { margin-bottom: 32px; }
-    .pricing .price-pledges { margin-bottom: 24px; }
-    .price-box { border: none; padding: 8px 48px; margin: 0; overflow: hidden; }
-    .price-amount { font-family: Impact, 'Arial Narrow', sans-serif; font-size: 6rem; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
-    .price-period { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(1rem, 2.2vw, 1.15rem); letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.35; color: #fff; margin-bottom: 14px; }
-    .price-pledges {
-      list-style: none;
-      margin: 0 0 40px;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .price-pledges li {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      line-height: 1.35;
-      color: var(--yellow);
-    }
-    .price-box .nav-cta {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 16px 32px !important;
-      font-family: Impact, 'Arial Narrow', sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.12em !important;
-      text-decoration: none;
-    }
+    .pricing-heading { margin: 0 0 8px; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(24px, 3vw, 32px); font-weight: 800; }
+    .pricing-heading span, .pricing-connect a { color: var(--yellow); }
+    .pricing-includes, .pricing-connect { margin: 0; color: #fff; font-family: Barlow, Arial, sans-serif; font-size: clamp(18px, 1.5vw, 22px); line-height: 1.5; }
+    .pricing-connect { margin-top: 12px; }
 
-    .who { padding: 0 40px 48px; background: var(--black); }
+    .who { padding: 28px 40px 28px; background: var(--black); }
     .who-inner { max-width: 720px; margin: 0 auto; }
     .guide-video-heading { margin: 0 0 18px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .18em; text-transform: uppercase; color: #e8bd43; }
     .guide-video { display: block; width: 100%; height: auto; border-radius: 16px; }
@@ -565,26 +536,20 @@
   </section>
   <div class="divider"></div>
 
-  <section class="pricing" id="pricing">
-    <div class="pricing-inner">
-      <div class="price-box">
-        <div class="price-period">The HARDKOR Diet</div>
-        <ul class="price-pledges">
-          <li>Personalized to you</li>
-          <li>8 weeks of text support with Kory</li>
-        </ul>
-        <div class="price-amount">$329</div>
-      </div>
-      <p class="pricing-connect">Tell me your goals. Ask me some questions. Parents too.<br />Text me at <a href="sms:+12539886946">253-988-6946</a>.</p>
-    </div>
-  </section>
-
   <section class="who" id="who" aria-labelledby="guide-heading">
     <div class="who-inner">
       <h2 class="guide-video-heading" id="guide-heading">Meet your guide</h2>
       <video class="guide-video" poster="/img/guide-video-poster.jpg" width="1920" height="1080" controls playsinline preload="metadata" aria-label="Welcome from Kory Edwards">
         <source src="/video/hardkor-welcome.mp4" type="video/mp4" />
       </video>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing" aria-labelledby="pricing-heading">
+    <div class="pricing-inner">
+      <h2 class="pricing-heading" id="pricing-heading">The HARDKOR Diet <span>· $329</span></h2>
+      <p class="pricing-includes">Your personalized diet and 8 weeks of text support with Kory.</p>
+      <p class="pricing-connect">Questions? Text me at <a href="sms:+12539886946">253-988-6946</a>.</p>
     </div>
   </section>
 
