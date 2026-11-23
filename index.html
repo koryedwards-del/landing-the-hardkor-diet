@@ -364,9 +364,19 @@
       text-align: center;
       color: var(--yellow);
     }
+    .sample-tap-word {
+      position: relative;
+      display: inline-block;
+    }
+    .sample-tap-line {
+      padding-bottom: 24px;
+    }
     .sample-tap-arrow {
-      display: block;
-      margin-bottom: 16px;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      width: 100%;
+      letter-spacing: normal;
       font-size: 1.25rem;
       line-height: 1;
       text-align: center;
@@ -525,8 +535,9 @@
       <h2 class="sample-bridge">But if you’re not, maybe you need a diet to match your hard work.</h2>
       <div class="sample-split">
         <div class="sample-panel">
-          <p class="sample-tap-line">Tap the sample report below to view all 6 pages.</p>
-          <p class="sample-tap-arrow" aria-hidden="true">↓</p>
+          <div class="sample-tap-line">
+            <span class="sample-tap-word">Tap<span class="sample-tap-arrow" aria-hidden="true">↓</span></span> the sample report below to view all 6 pages.
+          </div>
           <a class="pdf-preview" href="https://program-creator-3tzd.onrender.com/api/samples/hardkor-sample-diet?inline=1" target="_blank" rel="noopener" aria-label="Open the sample The HARDKOR Diet PDF to view the full document">
             <div class="pdf-preview-frame">
               <embed src="https://program-creator-3tzd.onrender.com/api/samples/hardkor-sample-diet?inline=1#page=1&amp;view=Fit&amp;toolbar=0&amp;navpanes=0" type="application/pdf" title="The HARDKOR Diet sample PDF" />
