@@ -359,7 +359,7 @@
 
     .pdf-preview { display: block; text-decoration: none; color: inherit; cursor: pointer; }
     .sample-tap-line {
-      margin-bottom: calc(24px + 1.25rem);
+      margin-bottom: 8px;
       padding-top: 24px;
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
@@ -369,16 +369,9 @@
       text-align: center;
       color: var(--yellow);
     }
-    .sample-tap-word {
-      position: relative;
-      display: inline-block;
-    }
     .sample-tap-arrow {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      width: 100%;
-      letter-spacing: normal;
+      display: block;
+      margin-bottom: 16px;
       font-size: 1.25rem;
       line-height: 1;
       text-align: center;
@@ -536,7 +529,8 @@
   <section class="sample" id="sample">
     <div class="sample-split-wrap">
       <h2 class="sample-bridge">But if you’re not, maybe you need a diet to match your hard work.</h2>
-      <p class="sample-tap-line"><span class="sample-tap-word">Tap<span class="sample-tap-arrow" aria-hidden="true">↓</span></span> the sample report below to view all 6 pages.</p>
+      <p class="sample-tap-line">Tap the sample report below to view all 6 pages.</p>
+      <p class="sample-tap-arrow" aria-hidden="true">↓</p>
       <div class="sample-split">
         <div class="sample-panel">
           <a class="pdf-preview" href="https://program-creator-3tzd.onrender.com/api/samples/hardkor-sample-diet?inline=1" target="_blank" rel="noopener" aria-label="Open the sample The HARDKOR Diet PDF to view the full document">
